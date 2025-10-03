@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 22 56% 90%;
-    --foreground: 188 9% 32%;
+    --background: 30 25% 95%;
+    --foreground: 280 40% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 188 9% 32%;
+    --card-foreground: 280 40% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 188 9% 32%;
+    --popover-foreground: 280 40% 15%;
 
-    --primary: 188 9% 32%;
-    --primary-foreground: 22 56% 90%;
+    --primary: 280 45% 35%;
+    --primary-foreground: 30 25% 95%;
 
-    --secondary: 130 14% 72%;
-    --secondary-foreground: 188 9% 32%;
+    --secondary: 340 50% 75%;
+    --secondary-foreground: 280 40% 15%;
 
-    --muted: 40 17% 84%;
-    --muted-foreground: 188 9% 42%;
+    --muted: 30 15% 88%;
+    --muted-foreground: 280 40% 35%;
 
-    --accent: 348 56% 81%;
-    --accent-foreground: 188 9% 32%;
+    --accent: 165 30% 70%;
+    --accent-foreground: 280 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 22 56% 90%;
+    --destructive-foreground: 30 25% 95%;
 
-    --border: 40 17% 84%;
-    --input: 40 17% 84%;
-    --ring: 348 56% 81%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 280 45% 35%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio colors */
-    --soft-rose: 348 56% 81%;
-    --peachy-beige: 22 56% 90%;
-    --warm-gray: 40 17% 84%;
-    --sage-green: 130 14% 72%;
-    --slate-gray: 188 9% 32%;
+    --royal-plum: 280 45% 35%;
+    --champagne: 30 25% 95%;
+    --dusty-rose: 340 50% 75%;
+    --sage-mist: 165 30% 70%;
+    --deep-plum: 280 40% 15%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--peachy-beige)), hsl(var(--warm-gray)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--soft-rose)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(30 25% 95%), hsl(30 20% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 45% 35%), hsl(340 50% 75%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--slate-gray) / 0.1);
-    --shadow-card: 0 8px 30px hsl(var(--slate-gray) / 0.12);
+    --shadow-soft: 0 4px 20px hsl(280 40% 15% / 0.08);
+    --shadow-card: 0 8px 30px hsl(280 40% 15% / 0.10);
   }
 }
 
