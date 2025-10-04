@@ -85,15 +85,7 @@ export const useGalleryLikes = () => {
       });
       
       if (error) throw error;
-
-      // Increment likes_count
-      const photo = photos.find(p => p.id === photoId);
-      if (photo) {
-        await supabase
-          .from("gallery_photos")
-          .update({ likes_count: photo.likes_count + 1 })
-          .eq("id", photoId);
-      }
+      // Database trigger automatically updates likes_count
     },
     onMutate: async (photoId) => {
       await queryClient.cancelQueries({ queryKey: ["gallery-photos"] });
@@ -141,15 +133,7 @@ export const useGalleryLikes = () => {
         .eq("user_identifier", userIdentifier);
       
       if (error) throw error;
-
-      // Decrement likes_count
-      const photo = photos.find(p => p.id === photoId);
-      if (photo) {
-        await supabase
-          .from("gallery_photos")
-          .update({ likes_count: Math.max(0, photo.likes_count - 1) })
-          .eq("id", photoId);
-      }
+      // Database trigger automatically updates likes_count
     },
     onMutate: async (photoId) => {
       await queryClient.cancelQueries({ queryKey: ["gallery-photos"] });
