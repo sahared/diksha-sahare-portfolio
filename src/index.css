@@ -246,4 +246,19 @@ All colors MUST be HSL.
     font-size: 18px !important;
     line-height: 1 !important;
   }
+
+  /* Prevent forced reflows by optimizing animated elements */
+  canvas,
+  .cosmic-cursor-canvas,
+  [class*="animate-"],
+  [data-animate] {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Optimize scroll-based animations */
+  .fixed {
+    will-change: transform;
+  }
 }
