@@ -19,19 +19,19 @@ const BackgroundMesh = () => {
 
   const getShapeColor = (index: number) => {
     const lightColors = [
-      "radial-gradient(circle, hsl(130 30% 88% / 0.4) 0%, hsl(130 30% 88% / 0.1) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(10 55% 78% / 0.35) 0%, hsl(10 55% 78% / 0.08) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(30 60% 92% / 0.45) 0%, hsl(30 60% 92% / 0.12) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(15 70% 58% / 0.25) 0%, hsl(15 70% 58% / 0.06) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(45 85% 85% / 0.3) 0%, hsl(45 85% 85% / 0.08) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(85 19% 81% / 0.4) 0%, hsl(85 19% 81% / 0.1) 50%, transparent 70%)", // light sage
+      "radial-gradient(circle, hsl(15 68% 83% / 0.35) 0%, hsl(15 68% 83% / 0.08) 50%, transparent 70%)", // peachy pink
+      "radial-gradient(circle, hsl(193 42% 72% / 0.45) 0%, hsl(193 42% 72% / 0.12) 50%, transparent 70%)", // soft blue
+      "radial-gradient(circle, hsl(23 76% 78% / 0.25) 0%, hsl(23 76% 78% / 0.06) 50%, transparent 70%)", // peachy orange
+      "radial-gradient(circle, hsl(48 74% 78% / 0.3) 0%, hsl(48 74% 78% / 0.08) 50%, transparent 70%)", // soft yellow
     ];
     
     const darkColors = [
-      "radial-gradient(circle, hsl(130 20% 45% / 0.25) 0%, hsl(130 20% 45% / 0.08) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(25 75% 78% / 0.2) 0%, hsl(25 75% 78% / 0.06) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(30 50% 50% / 0.3) 0%, hsl(30 50% 50% / 0.1) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(15 60% 55% / 0.22) 0%, hsl(15 60% 55% / 0.05) 50%, transparent 70%)",
-      "radial-gradient(circle, hsl(40 60% 60% / 0.18) 0%, hsl(40 60% 60% / 0.04) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(85 19% 45% / 0.25) 0%, hsl(85 19% 45% / 0.08) 50%, transparent 70%)", // darker sage
+      "radial-gradient(circle, hsl(15 68% 60% / 0.2) 0%, hsl(15 68% 60% / 0.06) 50%, transparent 70%)", // darker peachy pink
+      "radial-gradient(circle, hsl(193 42% 50% / 0.3) 0%, hsl(193 42% 50% / 0.1) 50%, transparent 70%)", // darker soft blue
+      "radial-gradient(circle, hsl(23 76% 55% / 0.22) 0%, hsl(23 76% 55% / 0.05) 50%, transparent 70%)", // darker peachy orange
+      "radial-gradient(circle, hsl(48 74% 60% / 0.18) 0%, hsl(48 74% 60% / 0.04) 50%, transparent 70%)", // darker soft yellow
     ];
 
     return theme === "dark" ? darkColors[index] : lightColors[index];
