@@ -57,7 +57,7 @@ const Hero = () => {
       behavior: "smooth"
     });
   };
-  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4">
+  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">

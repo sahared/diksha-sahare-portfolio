@@ -33,7 +33,7 @@ const TechStack = () => {
   ];
 
   return (
-    <section id="tech" className="py-20 px-4 bg-muted/30">
+    <section id="tech" className="py-20 px-4 bg-background">
       <div className="container mx-auto">
         <div className="max-w-4xl">
           <h2 className="text-4xl font-bold text-accent mb-4">Tech Stack</h2>

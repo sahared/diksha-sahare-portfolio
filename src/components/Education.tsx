@@ -88,7 +88,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 px-4">
+    <section id="education" className="py-20 px-4 bg-card">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-accent mb-4">Education</h2>
