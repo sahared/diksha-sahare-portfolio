@@ -56,10 +56,10 @@ const CosmicCursor = () => {
         };
       }
       return {
-        primary: "rgba(153, 123, 230, 0.9)", // Soft purple
-        secondary: "rgba(189, 139, 242, 0.7)", // Pale lavender
-        accent: "rgba(153, 123, 230, 0.5)",
-        trail: "rgba(153, 123, 230, 0.2)",
+        primary: "rgba(102, 51, 204, 1)", // Darker purple for visibility
+        secondary: "rgba(128, 64, 217, 0.9)", // Darker lavender
+        accent: "rgba(153, 123, 230, 0.7)",
+        trail: "rgba(102, 51, 204, 0.4)",
       };
     };
 
