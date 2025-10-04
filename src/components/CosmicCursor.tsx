@@ -26,6 +26,7 @@ const CosmicCursor = () => {
   const velocity = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef<number>();
   const interactiveElements = useRef<Element[]>([]);
+  const elementPositions = useRef<Map<Element, DOMRect>>(new Map());
   const lastDetectionTime = useRef(0);
 
   // Theme-adaptive color palettes
@@ -74,7 +75,7 @@ const CosmicCursor = () => {
     }));
   }, [theme]);
 
-  // Detect interactive elements (throttled)
+  // Detect interactive elements and cache their positions (throttled)
   const detectInteractiveElements = () => {
     const now = Date.now();
     if (now - lastDetectionTime.current < 100) return;
@@ -85,6 +86,12 @@ const CosmicCursor = () => {
         'a, button, [role="button"], [onclick], input, textarea, select, .cursor-pointer'
       )
     );
+    
+    // Batch read all layout properties before any writes
+    elementPositions.current.clear();
+    interactiveElements.current.forEach((element) => {
+      elementPositions.current.set(element, element.getBoundingClientRect());
+    });
   };
 
   // Mouse move handler
@@ -158,9 +165,11 @@ const CosmicCursor = () => {
         trail.opacity *= 0.95;
       });
 
-      // Draw constellation lines to nearby interactive elements
+      // Draw constellation lines to nearby interactive elements using cached positions
       interactiveElements.current.forEach((element) => {
-        const rect = element.getBoundingClientRect();
+        const rect = elementPositions.current.get(element);
+        if (!rect) return;
+        
         const elementCenter = {
           x: rect.left + rect.width / 2,
           y: rect.top + rect.height / 2,
