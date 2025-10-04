@@ -3,12 +3,12 @@ import { Download } from "lucide-react";
 
 const About = () => {
   const galleryImages = [
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=290&h=217&fit=crop&fm=webp&q=80",
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=290&h=217&fit=crop&fm=webp&q=80",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=290&h=217&fit=crop&fm=webp&q=80",
+    "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=290&h=217&fit=crop&fm=webp&q=80",
+    "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=290&h=217&fit=crop&fm=webp&q=80",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=290&h=217&fit=crop&fm=webp&q=80",
   ];
 
   return (
