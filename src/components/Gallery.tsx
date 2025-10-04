@@ -69,11 +69,11 @@ const Gallery = () => {
                   {/* Photo */}
                   <div className="relative aspect-square overflow-hidden bg-muted">
                     <img 
-                      src={photo.url} 
+                      src={`${photo.url}${photo.url.includes('?') ? '&' : '?'}w=298&h=298&fit=crop&fm=webp&q=80`}
                       alt={photo.caption}
-                      width={400}
-                      height={400}
-                      srcSet={`${photo.url}&w=400&h=400&fit=crop&fm=webp&q=80 400w, ${photo.url}&w=800&h=800&fit=crop&fm=webp&q=80 800w`}
+                      width={298}
+                      height={298}
+                      srcSet={`${photo.url}${photo.url.includes('?') ? '&' : '?'}w=298&h=298&fit=crop&fm=webp&q=80 298w, ${photo.url}${photo.url.includes('?') ? '&' : '?'}w=596&h=596&fit=crop&fm=webp&q=80 596w`}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="w-full h-full object-cover"
                       loading="lazy"
