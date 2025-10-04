@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 const BackgroundMesh = () => {
   const [scrollY, setScrollY] = useState(0);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,73 +14,102 @@ const BackgroundMesh = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const rotation = scrollY * 0.05;
-  const scale = 1 + (scrollY * 0.0001);
+  const rotation = scrollY * 0.03;
+  const scale = 1 + (scrollY * 0.00005);
+
+  const getShapeColor = (index: number) => {
+    const lightColors = [
+      "radial-gradient(circle, hsl(130 30% 88% / 0.4) 0%, hsl(130 30% 88% / 0.1) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(10 55% 78% / 0.35) 0%, hsl(10 55% 78% / 0.08) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(30 60% 92% / 0.45) 0%, hsl(30 60% 92% / 0.12) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(15 70% 58% / 0.25) 0%, hsl(15 70% 58% / 0.06) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(45 85% 85% / 0.3) 0%, hsl(45 85% 85% / 0.08) 50%, transparent 70%)",
+    ];
+    
+    const darkColors = [
+      "radial-gradient(circle, hsl(130 20% 45% / 0.25) 0%, hsl(130 20% 45% / 0.08) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(25 75% 78% / 0.2) 0%, hsl(25 75% 78% / 0.06) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(30 50% 50% / 0.3) 0%, hsl(30 50% 50% / 0.1) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(15 60% 55% / 0.22) 0%, hsl(15 60% 55% / 0.05) 50%, transparent 70%)",
+      "radial-gradient(circle, hsl(40 60% 60% / 0.18) 0%, hsl(40 60% 60% / 0.04) 50%, transparent 70%)",
+    ];
+
+    return theme === "dark" ? darkColors[index] : lightColors[index];
+  };
+
+  // Reduced motion check
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) return null;
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      {/* Enhanced morphing gradient orbs with terracotta palette - more visible */}
+      {/* Organic flowing shapes with warm palette */}
       <div 
-        className="absolute -top-1/2 -left-1/4 w-[900px] h-[900px] animate-morph-blob blur-[100px] opacity-[0.35]"
+        className="absolute -top-1/3 -left-1/4 w-[850px] h-[850px] animate-morph-blob blur-[120px]"
         style={{
-          background: "radial-gradient(circle, hsl(15 70% 65%) 0%, hsl(15 60% 68% / 0.5) 40%, transparent 70%)",
+          background: getShapeColor(0),
           transform: `rotate(${rotation}deg) scale(${scale})`,
           transition: "transform 0.1s ease-out",
-          filter: `brightness(${1 + scrollY * 0.0001})`,
-          animationDelay: "0s"
+          animationDelay: "0s",
+          borderRadius: "60% 40% 50% 70% / 60% 50% 70% 40%"
         }}
       />
       
       <div 
-        className="absolute top-1/4 -right-1/4 w-[750px] h-[750px] animate-morph-blob blur-[90px] opacity-[0.3]"
+        className="absolute top-1/4 -right-1/5 w-[750px] h-[750px] animate-morph-blob blur-[110px]"
         style={{
-          background: "radial-gradient(circle, hsl(25 75% 65%) 0%, hsl(20 55% 75% / 0.5) 40%, transparent 70%)",
-          transform: `rotate(${-rotation}deg) scale(${scale})`,
+          background: getShapeColor(1),
+          transform: `rotate(${-rotation}deg) scale(${scale * 0.95})`,
           transition: "transform 0.1s ease-out",
-          filter: `brightness(${1.1 - scrollY * 0.00008})`,
-          animationDelay: "8s"
+          animationDelay: "8s",
+          borderRadius: "50% 60% 70% 40% / 50% 70% 40% 60%"
         }}
       />
       
       <div 
-        className="absolute bottom-1/4 left-1/3 w-[850px] h-[850px] animate-morph-blob blur-[95px] opacity-[0.25]"
+        className="absolute bottom-1/4 left-1/4 w-[800px] h-[800px] animate-morph-blob blur-[115px]"
         style={{
-          background: "radial-gradient(circle, hsl(35 45% 80%) 0%, hsl(35 35% 90% / 0.5) 40%, transparent 70%)",
-          transform: `rotate(${rotation * 0.5}deg) scale(${scale})`,
+          background: getShapeColor(2),
+          transform: `rotate(${rotation * 0.7}deg) scale(${scale})`,
           transition: "transform 0.1s ease-out",
-          animationDelay: "16s"
+          animationDelay: "16s",
+          borderRadius: "70% 50% 60% 40% / 40% 60% 50% 70%"
         }}
       />
 
       <div 
-        className="absolute top-2/3 right-1/4 w-[700px] h-[700px] animate-morph-blob blur-[85px] opacity-[0.28]"
+        className="absolute top-2/3 right-1/5 w-[680px] h-[680px] animate-morph-blob blur-[100px]"
         style={{
-          background: "radial-gradient(circle, hsl(15 80% 60%) 0%, hsl(25 70% 60% / 0.5) 40%, transparent 70%)",
-          transform: `rotate(${-rotation * 0.8}deg) scale(${scale * 0.95})`,
+          background: getShapeColor(3),
+          transform: `rotate(${-rotation * 0.9}deg) scale(${scale * 0.92})`,
           transition: "transform 0.1s ease-out",
-          animationDelay: "24s"
+          animationDelay: "24s",
+          borderRadius: "40% 70% 50% 60% / 70% 40% 60% 50%"
         }}
       />
 
       <div 
-        className="absolute top-1/2 left-1/2 w-[600px] h-[600px] animate-morph-blob blur-[80px] opacity-[0.22]"
+        className="absolute top-1/2 left-1/3 w-[600px] h-[600px] animate-morph-blob blur-[95px]"
         style={{
-          background: "radial-gradient(circle, hsl(20 65% 70%) 0%, hsl(20 55% 75% / 0.5) 40%, transparent 70%)",
-          transform: `translate(-50%, -50%) rotate(${rotation * 1.2}deg) scale(${scale})`,
+          background: getShapeColor(4),
+          transform: `translate(-50%, -50%) rotate(${rotation * 1.1}deg) scale(${scale})`,
           transition: "transform 0.1s ease-out",
-          animationDelay: "32s"
+          animationDelay: "32s",
+          borderRadius: "55% 65% 45% 75% / 65% 45% 75% 55%"
         }}
       />
 
-      {/* Enhanced grid pattern */}
+      {/* Subtle organic grid pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.015]"
         style={{
           backgroundImage: `
-            linear-gradient(hsl(15 60% 68% / 0.3) 1px, transparent 1px),
-            linear-gradient(90deg, hsl(15 60% 68% / 0.3) 1px, transparent 1px)
+            radial-gradient(circle at 20% 50%, hsl(130 30% 70% / 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, hsl(15 70% 65% / 0.1) 0%, transparent 50%)
           `,
-          backgroundSize: "80px 80px"
         }}
       />
     </div>

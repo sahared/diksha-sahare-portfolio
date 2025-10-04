@@ -15,21 +15,21 @@ const ScrollBlobs = () => {
   }, []);
 
   const getBlobColor = (index: number) => {
-    const colors = {
-      light: [
-        "hsl(15 60% 68% / 0.08)",
-        "hsl(20 55% 75% / 0.06)",
-        "hsl(35 35% 90% / 0.1)",
-        "hsl(25 70% 60% / 0.07)",
-      ],
-      dark: [
-        "hsl(15 60% 68% / 0.12)",
-        "hsl(20 50% 65% / 0.1)",
-        "hsl(30 25% 25% / 0.15)",
-        "hsl(25 70% 60% / 0.1)",
-      ],
-    };
-    return theme === "dark" ? colors.dark[index] : colors.light[index];
+    const lightColors = [
+      "hsl(130 30% 88% / 0.06)",
+      "hsl(10 55% 78% / 0.05)",
+      "hsl(30 60% 92% / 0.08)",
+      "hsl(15 70% 58% / 0.04)",
+      "hsl(350 55% 85% / 0.05)",
+    ];
+    const darkColors = [
+      "hsl(130 20% 45% / 0.08)",
+      "hsl(25 75% 78% / 0.06)",
+      "hsl(30 50% 50% / 0.1)",
+      "hsl(15 60% 55% / 0.05)",
+      "hsl(40 60% 60% / 0.06)",
+    ];
+    return theme === "dark" ? darkColors[index] : lightColors[index];
   };
 
   // Reduced motion check
@@ -40,10 +40,11 @@ const ScrollBlobs = () => {
   if (prefersReducedMotion) return null;
 
   const blobs = [
-    { x: "-10%", y: "10%", size: 1000, parallax: 0.3, delay: 0 },
-    { x: "80%", y: "30%", size: 900, parallax: 0.5, delay: 5 },
-    { x: "20%", y: "60%", size: 1100, parallax: 0.4, delay: 10 },
-    { x: "70%", y: "80%", size: 950, parallax: 0.6, delay: 15 },
+    { x: "-12%", y: "8%", size: 950, parallax: 0.25, delay: 0 },
+    { x: "78%", y: "25%", size: 850, parallax: 0.4, delay: 6 },
+    { x: "18%", y: "55%", size: 1000, parallax: 0.35, delay: 12 },
+    { x: "72%", y: "75%", size: 900, parallax: 0.5, delay: 18 },
+    { x: "40%", y: "40%", size: 800, parallax: 0.3, delay: 24 },
   ];
 
   return (
@@ -51,7 +52,7 @@ const ScrollBlobs = () => {
       {blobs.map((blob, index) => (
         <div
           key={index}
-          className="absolute rounded-full animate-morph-blob blur-[100px]"
+          className="absolute animate-morph-blob blur-[110px]"
           style={{
             left: blob.x,
             top: blob.y,
@@ -62,6 +63,7 @@ const ScrollBlobs = () => {
             transition: "transform 0.1s ease-out",
             animationDelay: `${blob.delay}s`,
             willChange: "transform",
+            borderRadius: `${50 + (index * 5)}% ${60 - (index * 3)}% ${55 + (index * 4)}% ${65 - (index * 2)}% / ${60 + (index * 3)}% ${50 - (index * 4)}% ${70 + (index * 2)}% ${45 - (index * 3)}%`,
           }}
         />
       ))}
