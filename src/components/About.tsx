@@ -25,7 +25,7 @@ const About = () => {
               </div>
             ))}
             <div className="col-span-2 mt-4">
-              <h3 className="font-display text-4xl text-center text-foreground/70">Memory Lane</h3>
+              <h2 className="font-display text-4xl text-center text-foreground/70">Memory Lane</h2>
             </div>
           </div>
 
