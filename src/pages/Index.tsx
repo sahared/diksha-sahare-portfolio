@@ -20,6 +20,7 @@ const Gallery = lazy(() => import("@/components/Gallery"));
 const Contact = lazy(() => import("@/components/Contact"));
 
 const Index = () => {
+  // Portfolio index page with interactive spider web background
   return (
     <div className="min-h-screen relative">
       <SpiderWeb />
