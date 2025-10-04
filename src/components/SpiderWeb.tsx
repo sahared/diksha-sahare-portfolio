@@ -119,47 +119,41 @@ const SpiderWebMesh = () => {
     const positions = meshRef.current.geometry.attributes.position;
     const time = state.clock.elapsedTime;
 
+    // Update physics for each node
     nodesRef.current.forEach((node, i) => {
-      // Distance from mouse
       const dx = mousePos.x - node.position.x;
       const dy = mousePos.y - node.position.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      // Ripple effect from cursor
       const rippleStrength = Math.max(0, 1 - distance / 3);
       const ripple = Math.sin(distance * 2 - time * 3) * rippleStrength * 0.3;
-      
-      // Spring physics back to original position
       const spring = 0.02;
       const damping = 0.9;
-      
       const toOriginalX = node.originalPosition.x - node.position.x;
       const toOriginalY = node.originalPosition.y - node.position.y;
-      
       node.velocity.x += toOriginalX * spring;
       node.velocity.y += toOriginalY * spring;
       node.velocity.multiplyScalar(damping);
-      
-      // Add ripple displacement
       if (rippleStrength > 0.01) {
         const angle = Math.atan2(dy, dx);
         node.velocity.x += Math.cos(angle) * ripple * 0.5;
         node.velocity.y += Math.sin(angle) * ripple * 0.5;
       }
-      
       node.position.add(node.velocity);
-      
-      // Gentle floating animation
-      const floatX = Math.sin(time * 0.5 + i * 0.1) * 0.02;
-      const floatY = Math.cos(time * 0.3 + i * 0.15) * 0.02;
-      
-      positions.setXYZ(
-        i,
-        node.position.x + floatX,
-        node.position.y + floatY,
-        node.position.z
-      );
     });
+
+    // Write positions for each connection (two vertices per segment)
+    for (let k = 0; k < connections.length; k++) {
+      const [a, b] = connections[k];
+      const na = nodesRef.current[a];
+      const nb = nodesRef.current[b];
+      const ax = na.position.x + Math.sin(time * 0.5 + a * 0.1) * 0.02;
+      const ay = na.position.y + Math.cos(time * 0.3 + a * 0.15) * 0.02;
+      const bx = nb.position.x + Math.sin(time * 0.5 + b * 0.1) * 0.02;
+      const by = nb.position.y + Math.cos(time * 0.3 + b * 0.15) * 0.02;
+
+      positions.setXYZ(2 * k, ax, ay, na.position.z);
+      positions.setXYZ(2 * k + 1, bx, by, nb.position.z);
+    }
 
     positions.needsUpdate = true;
   });
@@ -167,23 +161,22 @@ const SpiderWebMesh = () => {
   // Create geometry
   const geometry = useMemo(() => {
     const geom = new THREE.BufferGeometry();
-    const positions = new Float32Array(nodes.length * 3);
-    
-    nodes.forEach((node, i) => {
-      positions[i * 3] = node.position.x;
-      positions[i * 3 + 1] = node.position.y;
-      positions[i * 3 + 2] = node.position.z;
-    });
-    
-    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    
-    const indices: number[] = [];
+    // Build non-indexed positions array: two vertices per connection
+    const positions = new Float32Array(connections.length * 2 * 3);
+
+    let ptr = 0;
     connections.forEach(([a, b]) => {
-      indices.push(a, b);
+      const na = nodes[a];
+      const nb = nodes[b];
+      positions[ptr++] = na.position.x;
+      positions[ptr++] = na.position.y;
+      positions[ptr++] = na.position.z;
+      positions[ptr++] = nb.position.x;
+      positions[ptr++] = nb.position.y;
+      positions[ptr++] = nb.position.z;
     });
-    
-    geom.setIndex(indices);
-    
+
+    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     return geom;
   }, [nodes, connections]);
 
@@ -213,7 +206,7 @@ const SpiderWeb = () => {
   if (prefersReducedMotion) return null;
 
   return (
-    <div className="fixed inset-0 -z-[5] pointer-events-none">
+    <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 50 }}
         style={{ background: "transparent" }}
