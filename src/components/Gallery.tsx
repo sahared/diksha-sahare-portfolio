@@ -1,9 +1,38 @@
 import { Heart, Calendar, MapPin } from "lucide-react";
 import { useGalleryLikes } from "@/hooks/useGalleryLikes";
 import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 const Gallery = () => {
   const { photos, isLoading, toggleLike, isLiked } = useGalleryLikes();
+  const [shuffledPhotos, setShuffledPhotos] = useState(photos);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Shuffle photos every second
+  useEffect(() => {
+    if (!photos.length || isPaused) return;
+    
+    const interval = setInterval(() => {
+      setShuffledPhotos(prev => {
+        const shuffled = [...prev];
+        // Fisher-Yates shuffle algorithm
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [photos, isPaused]);
+
+  // Initialize shuffled photos when photos load
+  useEffect(() => {
+    if (photos.length) {
+      setShuffledPhotos(photos);
+    }
+  }, [photos]);
 
   if (isLoading) {
     return (
@@ -28,13 +57,22 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4 max-w-7xl mx-auto">
-          {photos.map((photo) => {
+          {shuffledPhotos.map((photo, index) => {
             const liked = isLiked(photo.id);
             
             return (
               <div
                 key={photo.id}
-                className={`group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-card transition-all ${photo.span}`}
+                className={cn(
+                  "group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-card transition-all duration-500",
+                  photo.span
+                )}
+                style={{
+                  transitionProperty: 'all',
+                  transitionDuration: '500ms',
+                }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
                 <img 
                   src={photo.url} 
@@ -42,26 +80,27 @@ const Gallery = () => {
                   className="w-full h-full object-cover"
                 />
                 
-                {/* Overlay with gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent opacity-0 md:group-hover:opacity-100 opacity-100 md:opacity-0 transition-opacity duration-300">
+                {/* Overlay with gradient - shows on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/50 to-background/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   
-                  {/* Caption - center with handwritten style */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
-                    <p className="text-foreground text-2xl md:text-3xl font-handwriting text-center drop-shadow-lg">
+                  {/* Caption - center */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6">
+                    <p className="text-foreground text-xl md:text-2xl font-handwriting text-center drop-shadow-lg leading-relaxed">
                       {photo.caption}
                     </p>
                   </div>
 
-                  {/* Date - bottom left */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 text-foreground/90">
-                    <Calendar className="w-4 h-4" />
-                    <span className="text-sm font-medium">{photo.date}</span>
-                  </div>
-
-                  {/* Location - bottom right */}
-                  <div className="absolute bottom-4 right-4 flex items-center gap-2 text-foreground/90">
-                    <MapPin className="w-4 h-4" />
-                    <span className="text-sm font-medium">{photo.location}</span>
+                  {/* Date and Location - bottom */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-foreground/90">
+                    <div className="flex items-center gap-2 bg-background/30 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm font-medium">{photo.date}</span>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 bg-background/30 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm font-medium">{photo.location}</span>
+                    </div>
                   </div>
                 </div>
 
@@ -69,20 +108,20 @@ const Gallery = () => {
                 <button
                   onClick={() => toggleLike(photo.id)}
                   className={cn(
-                    "absolute top-4 right-4 flex items-center gap-2 px-3 py-2 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 z-10",
+                    "absolute top-3 right-3 flex items-center gap-2 px-3 py-2 rounded-full backdrop-blur-md transition-all duration-300 hover:scale-110 z-10",
                     liked 
-                      ? "bg-accent/90 text-accent-foreground" 
-                      : "bg-background/70 text-foreground hover:bg-background/90"
+                      ? "bg-accent/90 text-accent-foreground shadow-lg" 
+                      : "bg-background/80 text-foreground hover:bg-background/90"
                   )}
                   aria-label={liked ? "Unlike photo" : "Like photo"}
                 >
                   <Heart 
                     className={cn(
-                      "w-5 h-5 transition-all duration-300",
+                      "w-4 h-4 transition-all duration-300",
                       liked && "fill-current animate-scale-in"
                     )} 
                   />
-                  <span className="text-sm font-semibold tabular-nums">
+                  <span className="text-xs font-semibold tabular-nums">
                     {photo.likes_count}
                   </span>
                 </button>
