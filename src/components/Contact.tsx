@@ -129,7 +129,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-card relative overflow-hidden">
+    <section id="contact" className="py-20 px-4 bg-[hsl(48,74%,78%)]/25 relative overflow-hidden border-t border-border/30">
       <FlowerDecor variant={1} className="absolute top-10 left-12 opacity-35 animate-float-slow" size={85} />
       <FlowerDecor variant={5} className="absolute top-40 right-10 opacity-30" size={95} />
       <FlowerDecor variant={4} className="absolute bottom-40 left-1/3 opacity-25" size={70} />

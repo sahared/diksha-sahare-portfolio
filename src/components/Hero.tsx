@@ -58,7 +58,7 @@ const Hero = () => {
       behavior: "smooth"
     });
   };
-  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background relative overflow-hidden">
+  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background relative overflow-hidden border-t border-border/30">
       <FlowerDecor variant={3} className="absolute top-10 left-10 opacity-40 animate-float-slow" size={80} />
       <FlowerDecor variant={5} className="absolute top-32 right-16 opacity-30 animate-float-slow" size={100} />
       <FlowerDecor variant={1} className="absolute bottom-20 left-1/4 opacity-25" size={70} />

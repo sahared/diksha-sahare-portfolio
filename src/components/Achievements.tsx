@@ -111,7 +111,7 @@ const Achievements = () => {
   ];
 
   return (
-    <section id="achievements" className="py-20 px-4 bg-background">
+    <section id="achievements" className="py-20 px-4 bg-[hsl(193,42%,72%)]/20 relative overflow-hidden border-t border-border/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-accent mb-4">Achievements</h2>
