@@ -157,7 +157,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=450&h=450&fit=crop&fm=webp&q=80"
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=448&h=448&fit=crop&fm=webp&q=80"
                   alt="Profile"
                   className="w-full h-full object-cover"
                   fetchPriority="high"
