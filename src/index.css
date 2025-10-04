@@ -97,4 +97,34 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Cosmic Cursor Styles */
+  body {
+    cursor: none !important;
+  }
+
+  body * {
+    cursor: none !important;
+  }
+
+  /* Keep cursor on touch devices and reduced motion */
+  @media (hover: none) and (pointer: coarse) {
+    body, body * {
+      cursor: default !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body, body * {
+      cursor: default !important;
+    }
+    .cosmic-cursor-canvas {
+      display: none !important;
+    }
+  }
+
+  /* Hardware acceleration for smooth performance */
+  .cosmic-cursor-canvas {
+    will-change: transform;
+  }
 }
