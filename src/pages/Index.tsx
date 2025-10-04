@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BackgroundMesh from "@/components/BackgroundMesh";
-import SpiderWeb from "@/components/SpiderWeb";
 
 // Lazy load visual components
 const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
@@ -20,10 +19,8 @@ const Gallery = lazy(() => import("@/components/Gallery"));
 const Contact = lazy(() => import("@/components/Contact"));
 
 const Index = () => {
-  // Portfolio index page with interactive spider web background
   return (
     <div className="min-h-screen relative">
-      <SpiderWeb />
       <BackgroundMesh />
       <Suspense fallback={null}>
         <ScrollBlobs />

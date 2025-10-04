@@ -10,98 +10,98 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 30 28% 94%;
-    --foreground: 20 20% 25%;
+    /* Light Theme - Aesthetic Minimalist Palette */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 15%;
 
-    --card: 25 30% 96%;
-    --card-foreground: 20 20% 25%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
 
-    --popover: 25 30% 96%;
-    --popover-foreground: 20 20% 25%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
 
-    --primary: 15 60% 68%;
-    --primary-foreground: 30 28% 94%;
+    --primary: 250 70% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 35% 90%;
-    --secondary-foreground: 20 20% 25%;
+    --secondary: 210 15% 92%;
+    --secondary-foreground: 240 10% 15%;
 
-    --muted: 30 25% 88%;
-    --muted-foreground: 20 20% 40%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 240 5% 45%;
 
-    --accent: 20 55% 75%;
-    --accent-foreground: 20 20% 25%;
+    --accent: 280 65% 70%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 28% 94%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 15 60% 68%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 250 70% 65%;
 
     --radius: 0.75rem;
 
-    /* Custom terracotta palette */
-    --terracotta: 15 60% 68%;
-    --warm-cream: 30 28% 94%;
-    --sand: 35 35% 90%;
-    --warm-clay: 20 55% 75%;
-    --burnt-orange: 25 70% 60%;
+    /* Custom aesthetic palette */
+    --soft-purple: 250 70% 65%;
+    --pale-lavender: 280 65% 70%;
+    --cool-gray: 210 15% 92%;
+    --warm-white: 0 0% 98%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(30 28% 94%), hsl(20 55% 75%));
-    --gradient-accent: linear-gradient(135deg, hsl(35 35% 90%), hsl(15 60% 68%));
-    --gradient-mesh: radial-gradient(at 27% 37%, hsl(15 60% 68% / 0.18) 0px, transparent 50%),
-                     radial-gradient(at 97% 21%, hsl(20 55% 75% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 52% 99%, hsl(35 35% 90% / 0.12) 0px, transparent 50%),
-                     radial-gradient(at 10% 29%, hsl(25 70% 60% / 0.10) 0px, transparent 50%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 98%), hsl(250 70% 65% / 0.08));
+    --gradient-accent: linear-gradient(135deg, hsl(280 65% 70% / 0.15), hsl(250 70% 65% / 0.15));
+    --gradient-mesh: radial-gradient(at 27% 37%, hsl(250 70% 65% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 97% 21%, hsl(280 65% 70% / 0.06) 0px, transparent 50%),
+                     radial-gradient(at 52% 99%, hsl(210 15% 92% / 0.05) 0px, transparent 50%);
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(20 20% 25% / 0.08);
-    --shadow-card: 0 8px 30px hsl(15 60% 68% / 0.15);
-    --shadow-glow: 0 0 40px hsl(15 60% 68% / 0.25);
+    --shadow-soft: 0 2px 15px hsl(240 10% 15% / 0.04);
+    --shadow-card: 0 4px 25px hsl(250 70% 65% / 0.08);
+    --shadow-glow: 0 0 30px hsl(250 70% 65% / 0.12);
     
     /* Glassmorphism */
-    --glass-bg: hsl(var(--card) / 0.75);
-    --glass-border: hsl(var(--border) / 0.4);
+    --glass-bg: hsl(0 0% 100% / 0.7);
+    --glass-border: hsl(220 13% 91% / 0.5);
   }
 
   .dark {
-    --background: 20 20% 15%;
-    --foreground: 30 25% 92%;
+    /* Dark Theme - Aesthetic Minimalist Palette */
+    --background: 240 10% 8%;
+    --foreground: 0 0% 95%;
 
-    --card: 25 18% 18%;
-    --card-foreground: 30 25% 92%;
+    --card: 240 8% 12%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 25 18% 18%;
-    --popover-foreground: 30 25% 92%;
+    --popover: 240 8% 12%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 15 60% 68%;
-    --primary-foreground: 20 20% 15%;
+    --primary: 250 70% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 25% 25%;
-    --secondary-foreground: 30 25% 92%;
+    --secondary: 240 6% 18%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 20 15% 22%;
-    --muted-foreground: 30 20% 65%;
+    --muted: 240 5% 20%;
+    --muted-foreground: 240 4% 60%;
 
-    --accent: 20 50% 65%;
-    --accent-foreground: 30 25% 92%;
+    --accent: 280 65% 70%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 30 25% 92%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 20 15% 25%;
-    --input: 20 15% 25%;
-    --ring: 15 60% 68%;
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 250 70% 65%;
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 8px 30px hsl(15 60% 68% / 0.2);
-    --shadow-glow: 0 0 40px hsl(15 60% 68% / 0.35);
+    --shadow-soft: 0 2px 15px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 25px hsl(250 70% 65% / 0.15);
+    --shadow-glow: 0 0 30px hsl(250 70% 65% / 0.25);
     
     /* Glassmorphism */
-    --glass-bg: hsl(var(--card) / 0.6);
-    --glass-border: hsl(var(--border) / 0.3);
+    --glass-bg: hsl(240 8% 12% / 0.6);
+    --glass-border: hsl(240 6% 20% / 0.4);
   }
 }
 
@@ -161,13 +161,13 @@ All colors MUST be HSL.
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 hsl(15 60% 68% / 0.1);
+    box-shadow: 0 8px 32px 0 hsl(250 70% 65% / 0.08);
   }
   
   .glass-card:hover {
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 8px 32px 0 hsl(15 60% 68% / 0.15);
+    box-shadow: 0 8px 32px 0 hsl(250 70% 65% / 0.12);
   }
   
   .shadow-glow {
