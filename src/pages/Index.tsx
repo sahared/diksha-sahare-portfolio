@@ -1,29 +1,34 @@
+import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import TechStack from "@/components/TechStack";
-import Education from "@/components/Education";
-import Achievements from "@/components/Achievements";
-import Certifications from "@/components/Certifications";
-import Gallery from "@/components/Gallery";
-import Contact from "@/components/Contact";
+
+// Lazy load components below the fold
+const About = lazy(() => import("@/components/About"));
+const Experience = lazy(() => import("@/components/Experience"));
+const Projects = lazy(() => import("@/components/Projects"));
+const TechStack = lazy(() => import("@/components/TechStack"));
+const Education = lazy(() => import("@/components/Education"));
+const Achievements = lazy(() => import("@/components/Achievements"));
+const Certifications = lazy(() => import("@/components/Certifications"));
+const Gallery = lazy(() => import("@/components/Gallery"));
+const Contact = lazy(() => import("@/components/Contact"));
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <TechStack />
-      <Education />
-      <Achievements />
-      <Certifications />
-      <Gallery />
-      <Contact />
+      <Suspense fallback={<div className="h-screen" />}>
+        <About />
+        <Experience />
+        <Projects />
+        <TechStack />
+        <Education />
+        <Achievements />
+        <Certifications />
+        <Gallery />
+        <Contact />
+      </Suspense>
     </div>
   );
 };
