@@ -15,6 +15,16 @@ interface ContactFormRequest {
   message: string;
 }
 
+// HTML escape function to prevent XSS in emails
+const escapeHtml = (unsafe: string): string => {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+};
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -56,6 +66,11 @@ const handler = async (req: Request): Promise<Response> => {
     const trimmedName = name.trim();
     const trimmedEmail = email.trim().toLowerCase();
     const trimmedMessage = message.trim();
+
+    // Sanitize inputs for HTML email display
+    const safeName = escapeHtml(trimmedName);
+    const safeEmail = escapeHtml(trimmedEmail);
+    const safeMessage = escapeHtml(trimmedMessage);
 
     // Initialize Supabase client
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
@@ -119,13 +134,13 @@ const handler = async (req: Request): Promise<Response> => {
     const notificationEmail = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: ["your-email@example.com"], // TODO: Replace with your actual email
-      subject: `New Contact Form Submission from ${trimmedName}`,
+      subject: `New Contact Form Submission from ${safeName}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${trimmedName}</p>
-        <p><strong>Email:</strong> ${trimmedEmail}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Message:</strong></p>
-        <p>${trimmedMessage.replace(/\n/g, '<br>')}</p>
+        <p>${safeMessage.replace(/\n/g, '<br>')}</p>
         <hr>
         <p><small>Submitted: ${new Date().toLocaleString()}</small></p>
         <p><small>IP: ${ipAddress}</small></p>
@@ -144,7 +159,7 @@ const handler = async (req: Request): Promise<Response> => {
       to: [trimmedEmail],
       subject: "Thanks for reaching out!",
       html: `
-        <h2>Hi ${trimmedName},</h2>
+        <h2>Hi ${safeName},</h2>
         <p>Thank you for contacting me! I've received your message and will get back to you as soon as possible.</p>
         <p>Best regards,<br>Your Name</p>
         <hr>
@@ -170,8 +185,9 @@ const handler = async (req: Request): Promise<Response> => {
     );
   } catch (error: any) {
     console.error("Error in send-contact-email function:", error);
+    // Return generic error message to client (don't expose internal details)
     return new Response(
-      JSON.stringify({ error: error.message || "An unexpected error occurred" }),
+      JSON.stringify({ error: "Failed to send message. Please try again later." }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
