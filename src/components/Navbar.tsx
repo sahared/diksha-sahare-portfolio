@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import logo from "@/assets/logo.png";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -61,9 +62,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <button 
             onClick={scrollToTop}
-            className="font-display text-2xl font-bold text-primary hover:text-primary/80 transition-colors"
+            className="hover:opacity-80 transition-opacity"
           >
-            DS
+            <img 
+              src={logo} 
+              alt="Diksha Sahare" 
+              className="h-12 w-auto object-contain"
+            />
           </button>
 
           {/* Desktop Menu */}
