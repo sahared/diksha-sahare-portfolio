@@ -160,6 +160,7 @@ const Hero = () => {
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=450&h=450&fit=crop&fm=webp&q=80"
                   alt="Profile"
                   className="w-full h-full object-cover"
+                  fetchPriority="high"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full blur-3xl opacity-40"></div>
