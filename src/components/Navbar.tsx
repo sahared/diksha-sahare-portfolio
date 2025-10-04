@@ -20,13 +20,16 @@ const Navbar = () => {
   }, {
     name: "Education",
     href: "#education"
-  }, {
-    name: "Achievements",
-    href: "#achievements"
-  }, {
-    name: "Certifications",
-    href: "#certifications"
-  }, {
+  }, 
+  // {
+  //   name: "Achievements",
+  //   href: "#achievements"
+  // }, 
+  // {
+  //   name: "Certifications",
+  //   href: "#certifications"
+  // }, 
+  {
     name: "Gallery",
     href: "#gallery"
   }, {
