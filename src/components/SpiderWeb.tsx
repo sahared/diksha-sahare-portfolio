@@ -189,15 +189,16 @@ const SpiderWebMesh = () => {
 
   const color = theme === "dark" 
     ? new THREE.Color("hsl(15, 60%, 68%)") 
-    : new THREE.Color("hsl(15, 60%, 68%)");
+    : new THREE.Color("hsl(15, 60%, 60%)");
 
   return (
     <lineSegments ref={meshRef} geometry={geometry}>
       <lineBasicMaterial 
         color={color} 
         transparent 
-        opacity={theme === "dark" ? 0.15 : 0.12}
-        linewidth={1}
+        opacity={theme === "dark" ? 0.35 : 0.25}
+        linewidth={2}
+        depthTest={false}
       />
     </lineSegments>
   );
@@ -212,10 +213,11 @@ const SpiderWeb = () => {
   if (prefersReducedMotion) return null;
 
   return (
-    <div className="fixed inset-0 -z-10 pointer-events-none">
+    <div className="fixed inset-0 -z-[5] pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 50 }}
         style={{ background: "transparent" }}
+        gl={{ alpha: true, antialias: true }}
       >
         <SpiderWebMesh />
       </Canvas>
