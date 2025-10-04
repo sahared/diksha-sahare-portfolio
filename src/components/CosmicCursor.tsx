@@ -33,30 +33,30 @@ const CosmicCursor = () => {
   const getColors = () => {
     if (theme === "dark") {
       return {
-        core: "rgba(212, 165, 165, 0.9)", // Brighter dusty rose
-        coreGlow: "rgba(212, 165, 165, 0.4)",
+        core: "rgba(208, 130, 113, 0.9)", // Terracotta
+        coreGlow: "rgba(208, 130, 113, 0.4)",
         particles: [
-          "rgba(255, 105, 180, 0.8)", // Vibrant pink
-          "rgba(100, 200, 255, 0.8)", // Cyan
-          "rgba(255, 215, 0, 0.8)", // Gold
+          "rgba(225, 155, 100, 0.8)", // Burnt orange
+          "rgba(208, 130, 113, 0.8)", // Terracotta
+          "rgba(235, 180, 160, 0.8)", // Warm clay
         ],
         constellation: {
-          start: "rgba(212, 165, 165, 0.6)",
-          end: "rgba(100, 200, 255, 0.3)",
+          start: "rgba(208, 130, 113, 0.6)",
+          end: "rgba(225, 155, 100, 0.3)",
         },
       };
     }
     return {
-      core: "rgba(212, 165, 165, 0.8)", // Dusty rose
-      coreGlow: "rgba(212, 165, 165, 0.2)",
+      core: "rgba(208, 130, 113, 0.8)", // Terracotta
+      coreGlow: "rgba(208, 130, 113, 0.2)",
       particles: [
-        "rgba(212, 165, 165, 0.7)", // Dusty rose
-        "rgba(225, 200, 175, 0.7)", // Warm cream
-        "rgba(190, 210, 220, 0.7)", // Powder blue
+        "rgba(208, 130, 113, 0.7)", // Terracotta
+        "rgba(217, 170, 155, 0.7)", // Warm clay
+        "rgba(225, 155, 100, 0.7)", // Burnt orange
       ],
       constellation: {
-        start: "rgba(212, 165, 165, 0.4)",
-        end: "rgba(190, 210, 220, 0.2)",
+        start: "rgba(208, 130, 113, 0.4)",
+        end: "rgba(217, 170, 155, 0.2)",
       },
     };
   };

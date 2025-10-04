@@ -3,6 +3,10 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BackgroundMesh from "@/components/BackgroundMesh";
 
+// Lazy load visual components
+const AmbientParticles = lazy(() => import("@/components/AmbientParticles"));
+const ScrollBlobs = lazy(() => import("@/components/ScrollBlobs"));
+
 // Lazy load components below the fold
 const About = lazy(() => import("@/components/About"));
 const Experience = lazy(() => import("@/components/Experience"));
@@ -18,6 +22,10 @@ const Index = () => {
   return (
     <div className="min-h-screen relative">
       <BackgroundMesh />
+      <Suspense fallback={null}>
+        <ScrollBlobs />
+        <AmbientParticles />
+      </Suspense>
       <Navbar />
       <Hero />
       <Suspense fallback={<div className="h-screen" />}>
