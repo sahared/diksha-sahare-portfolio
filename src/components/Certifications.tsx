@@ -109,7 +109,10 @@ const Certifications = () => {
                 <img
                   src={cert.image}
                   alt={cert.title}
+                  width={366}
+                  height={192}
                   className="w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center shadow-card">

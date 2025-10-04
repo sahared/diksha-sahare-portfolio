@@ -88,7 +88,10 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={290}
+                  height={193}
                   className="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <div className="absolute top-3 right-3">
                   <Badge

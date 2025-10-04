@@ -77,8 +77,10 @@ const Gallery = () => {
                 <img 
                   src={photo.url} 
                   alt={photo.caption}
-                  width="298"
-                  height="200" 
+                  width={298}
+                  height={200}
+                  srcSet={`${photo.url}&w=298&h=200&fit=crop&fm=webp&q=80 298w, ${photo.url}&w=596&h=400&fit=crop&fm=webp&q=80 596w`}
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

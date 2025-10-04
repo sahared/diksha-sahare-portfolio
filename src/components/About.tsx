@@ -21,7 +21,14 @@ const About = () => {
                 key={index}
                 className="aspect-[4/3] rounded-xl overflow-hidden shadow-soft hover:shadow-card transition-shadow transform hover:-translate-y-1 duration-300"
               >
-                <img src={img} alt={`Memory ${index + 1}`} className="w-full h-full object-cover" />
+                <img 
+                  src={img} 
+                  alt={`Memory ${index + 1}`} 
+                  width={290}
+                  height={217}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             ))}
             <div className="col-span-2 mt-4">
