@@ -10,45 +10,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light Theme - Custom Palette: #FDE8D3, #F3C3B2, #99CDD8, #657166, #CFD6C4, #F1E4A0, #F2BC9C */
-    --background: 32 86% 91%; /* #FDE8D3 - peachy beige background */
-    --foreground: 123 6% 44%; /* #657166 - muted green text */
+    /* Light Theme - Custom Palette with improved contrast */
+    --background: 32 50% 96%; /* Lighter peachy beige background */
+    --foreground: 123 10% 25%; /* Darker muted green text for better contrast */
 
-    --card: 32 86% 91%; /* #FDE8D3 */
-    --card-foreground: 123 6% 44%; /* #657166 */
+    --card: 0 0% 98%; /* Nearly white for cards */
+    --card-foreground: 123 10% 25%; /* Dark text on cards */
 
-    --popover: 32 86% 91%; /* #FDE8D3 */
-    --popover-foreground: 123 6% 44%; /* #657166 */
+    --popover: 0 0% 98%; /* Nearly white */
+    --popover-foreground: 123 10% 25%; /* Dark text */
 
-    --primary: 23 76% 78%; /* #F2BC9C - peachy orange */
-    --primary-foreground: 123 6% 44%; /* #657166 */
+    --primary: 344 50% 48%; /* Deeper rose for better contrast */
+    --primary-foreground: 0 0% 98%; /* Light text on primary */
 
-    --secondary: 85 19% 81%; /* #CFD6C4 - light sage */
-    --secondary-foreground: 123 6% 44%; /* #657166 */
+    --secondary: 23 60% 50%; /* Medium warm orange */
+    --secondary-foreground: 0 0% 98%; /* Light text on secondary */
 
-    --muted: 85 19% 81%; /* #CFD6C4 */
-    --muted-foreground: 123 6% 44%; /* #657166 */
+    --muted: 32 30% 88%; /* Light muted background */
+    --muted-foreground: 123 10% 30%; /* Dark text on muted */
 
-    --accent: 193 42% 72%; /* #99CDD8 - soft blue */
-    --accent-foreground: 123 6% 44%; /* #657166 */
+    --accent: 193 60% 40%; /* Deeper blue for better contrast */
+    --accent-foreground: 0 0% 98%; /* Light text on accent */
 
-    --destructive: 0 70% 55%;
-    --destructive-foreground: 32 86% 91%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 85 19% 81%; /* #CFD6C4 */
-    --input: 85 19% 81%; /* #CFD6C4 */
-    --ring: 23 76% 78%; /* #F2BC9C */
+    --border: 32 20% 85%; /* Light border */
+    --input: 32 20% 85%; /* Light input border */
+    --ring: 344 50% 48%; /* Primary color for focus ring */
 
     --radius: 0.75rem;
 
-    /* Custom Color Palette Variables */
-    --peachy-beige: 32 86% 91%; /* #FDE8D3 */
-    --peachy-pink: 15 68% 83%; /* #F3C3B2 */
-    --soft-blue: 193 42% 72%; /* #99CDD8 */
-    --muted-green: 123 6% 44%; /* #657166 */
-    --light-sage: 85 19% 81%; /* #CFD6C4 */
-    --soft-yellow: 48 74% 78%; /* #F1E4A0 */
-    --peachy-orange: 23 76% 78%; /* #F2BC9C */
+    /* Custom Color Palette Variables - Adjusted for contrast */
+    --peachy-beige: 32 50% 96%;
+    --peachy-pink: 15 60% 75%;
+    --soft-blue: 193 60% 40%;
+    --muted-green: 123 10% 25%;
+    --light-sage: 85 25% 75%;
+    --soft-yellow: 48 60% 55%;
+    --peachy-orange: 23 60% 50%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(32 86% 91%), hsl(23 76% 78% / 0.3));
