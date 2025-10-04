@@ -10,80 +10,80 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 330 40% 98%;
-    --foreground: 6 30% 20%;
+    --background: 30 25% 96%;
+    --foreground: 20 20% 25%;
 
-    --card: 330 30% 99%;
-    --card-foreground: 6 30% 20%;
+    --card: 30 30% 97%;
+    --card-foreground: 20 20% 25%;
 
-    --popover: 330 30% 99%;
-    --popover-foreground: 6 30% 20%;
+    --popover: 30 30% 97%;
+    --popover-foreground: 20 20% 25%;
 
-    --primary: 338 40% 45%;
-    --primary-foreground: 330 40% 98%;
+    --primary: 10 60% 75%;
+    --primary-foreground: 20 20% 25%;
 
-    --secondary: 30 50% 50%;
-    --secondary-foreground: 330 40% 98%;
+    --secondary: 30 30% 92%;
+    --secondary-foreground: 20 20% 25%;
 
-    --muted: 330 35% 95%;
-    --muted-foreground: 6 30% 35%;
+    --muted: 30 25% 90%;
+    --muted-foreground: 20 20% 40%;
 
-    --accent: 190 30% 40%;
-    --accent-foreground: 330 40% 98%;
+    --accent: 10 55% 80%;
+    --accent-foreground: 20 20% 25%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 330 40% 95%;
+    --destructive-foreground: 30 25% 96%;
 
-    --border: 338 30% 88%;
-    --input: 338 30% 88%;
-    --ring: 338 25% 72%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 10 60% 75%;
 
     --radius: 0.75rem;
 
     /* Custom portfolio colors */
-    --dusty-rose: 338 25% 72%;
-    --chocolate-brown: 6 22% 30%;
-    --warm-cream: 30 45% 85%;
+    --dusty-rose: 10 60% 75%;
+    --chocolate-brown: 20 20% 25%;
+    --warm-cream: 30 25% 92%;
     --powder-blue: 190 20% 80%;
-    --soft-pink: 330 40% 95%;
+    --soft-pink: 10 55% 85%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(330 40% 95%), hsl(338 35% 92%));
-    --gradient-accent: linear-gradient(135deg, hsl(338 25% 72%), hsl(30 45% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(30 25% 96%), hsl(10 55% 88%));
+    --gradient-accent: linear-gradient(135deg, hsl(10 60% 75%), hsl(30 30% 92%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(6 22% 30% / 0.08);
-    --shadow-card: 0 8px 30px hsl(6 22% 30% / 0.10);
+    --shadow-soft: 0 4px 20px hsl(20 20% 25% / 0.08);
+    --shadow-card: 0 8px 30px hsl(20 20% 25% / 0.10);
   }
 
   .dark {
-    --background: 6 22% 15%;
-    --foreground: 330 40% 95%;
+    --background: 20 15% 12%;
+    --foreground: 30 25% 92%;
 
-    --card: 6 22% 18%;
-    --card-foreground: 330 40% 95%;
+    --card: 20 15% 15%;
+    --card-foreground: 30 25% 92%;
 
-    --popover: 6 22% 18%;
-    --popover-foreground: 330 40% 95%;
+    --popover: 20 15% 15%;
+    --popover-foreground: 30 25% 92%;
 
-    --primary: 338 25% 72%;
-    --primary-foreground: 6 22% 15%;
+    --primary: 10 60% 75%;
+    --primary-foreground: 20 15% 12%;
 
-    --secondary: 30 45% 25%;
-    --secondary-foreground: 330 40% 95%;
+    --secondary: 30 20% 20%;
+    --secondary-foreground: 30 25% 92%;
 
-    --muted: 6 22% 22%;
-    --muted-foreground: 330 30% 70%;
+    --muted: 20 15% 18%;
+    --muted-foreground: 30 20% 65%;
 
-    --accent: 190 20% 30%;
-    --accent-foreground: 330 40% 95%;
+    --accent: 10 55% 65%;
+    --accent-foreground: 30 25% 92%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 330 40% 95%;
+    --destructive-foreground: 30 25% 92%;
 
-    --border: 6 22% 25%;
-    --input: 6 22% 25%;
-    --ring: 338 25% 72%;
+    --border: 20 15% 22%;
+    --input: 20 15% 22%;
+    --ring: 10 60% 75%;
 
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
