@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
-
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,7 +49,6 @@ const Navbar = () => {
       setIsMobileMenuOpen(false);
     }
   };
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -60,12 +58,7 @@ const Navbar = () => {
   return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent"}`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <button 
-            onClick={scrollToTop}
-            className="text-2xl font-bold text-foreground hover:text-accent transition-colors"
-          >
-            DIKSHA SAHARE
-          </button>
+          <button onClick={scrollToTop} className="text-2xl font-bold text-foreground hover:text-accent transition-colors">&lt;DS&gt;</button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-6 items-center">
