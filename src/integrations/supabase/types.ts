@@ -44,6 +44,68 @@ export type Database = {
         }
         Relationships: []
       }
+      gallery_likes: {
+        Row: {
+          created_at: string
+          id: string
+          photo_id: string
+          user_identifier: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          photo_id: string
+          user_identifier: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          photo_id?: string
+          user_identifier?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gallery_likes_photo_id_fkey"
+            columns: ["photo_id"]
+            isOneToOne: false
+            referencedRelation: "gallery_photos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      gallery_photos: {
+        Row: {
+          caption: string
+          created_at: string
+          date: string
+          id: string
+          likes_count: number
+          location: string
+          span: string
+          url: string
+        }
+        Insert: {
+          caption: string
+          created_at?: string
+          date: string
+          id?: string
+          likes_count?: number
+          location: string
+          span: string
+          url: string
+        }
+        Update: {
+          caption?: string
+          created_at?: string
+          date?: string
+          id?: string
+          likes_count?: number
+          location?: string
+          span?: string
+          url?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           bio: string | null

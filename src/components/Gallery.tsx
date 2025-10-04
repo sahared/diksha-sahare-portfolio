@@ -1,16 +1,23 @@
-import { Heart } from "lucide-react";
+import { Heart, Calendar, MapPin } from "lucide-react";
+import { useGalleryLikes } from "@/hooks/useGalleryLikes";
+import { cn } from "@/lib/utils";
 
 const Gallery = () => {
-  const galleryImages = [
-    { url: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=800&fit=crop", span: "row-span-2" },
-    { url: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=400&fit=crop", span: "row-span-1" },
-    { url: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop", span: "row-span-1" },
-    { url: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=800&fit=crop", span: "row-span-2" },
-    { url: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop", span: "row-span-1" },
-    { url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop", span: "row-span-1" },
-    { url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop", span: "row-span-1" },
-    { url: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=800&fit=crop", span: "row-span-2" },
-  ];
+  const { photos, isLoading, toggleLike, isLiked } = useGalleryLikes();
+
+  if (isLoading) {
+    return (
+      <section id="gallery" className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-accent mb-4">Gallery</h2>
+            <p className="text-muted-foreground">Moments worth remembering</p>
+          </div>
+          <div className="text-center text-muted-foreground">Loading gallery...</div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="gallery" className="py-20 px-4 bg-muted/30">
@@ -21,17 +28,67 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4 max-w-7xl mx-auto">
-          {galleryImages.map((image, index) => (
-            <div
-              key={index}
-              className={`group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-card transition-all ${image.span}`}
-            >
-              <img src={image.url} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
-                <Heart className="text-accent fill-accent" size={24} />
+          {photos.map((photo) => {
+            const liked = isLiked(photo.id);
+            
+            return (
+              <div
+                key={photo.id}
+                className={`group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-card transition-all ${photo.span}`}
+              >
+                <img 
+                  src={photo.url} 
+                  alt={photo.caption} 
+                  className="w-full h-full object-cover"
+                />
+                
+                {/* Overlay with gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent opacity-0 md:group-hover:opacity-100 opacity-100 md:opacity-0 transition-opacity duration-300">
+                  
+                  {/* Caption - center with handwritten style */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4">
+                    <p className="text-foreground text-2xl md:text-3xl font-handwriting text-center drop-shadow-lg">
+                      {photo.caption}
+                    </p>
+                  </div>
+
+                  {/* Date - bottom left */}
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2 text-foreground/90">
+                    <Calendar className="w-4 h-4" />
+                    <span className="text-sm font-medium">{photo.date}</span>
+                  </div>
+
+                  {/* Location - bottom right */}
+                  <div className="absolute bottom-4 right-4 flex items-center gap-2 text-foreground/90">
+                    <MapPin className="w-4 h-4" />
+                    <span className="text-sm font-medium">{photo.location}</span>
+                  </div>
+                </div>
+
+                {/* Like button - top right, always visible */}
+                <button
+                  onClick={() => toggleLike(photo.id)}
+                  className={cn(
+                    "absolute top-4 right-4 flex items-center gap-2 px-3 py-2 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110 z-10",
+                    liked 
+                      ? "bg-accent/90 text-accent-foreground" 
+                      : "bg-background/70 text-foreground hover:bg-background/90"
+                  )}
+                  aria-label={liked ? "Unlike photo" : "Like photo"}
+                >
+                  <Heart 
+                    className={cn(
+                      "w-5 h-5 transition-all duration-300",
+                      liked && "fill-current animate-scale-in"
+                    )} 
+                  />
+                  <span className="text-sm font-semibold tabular-nums">
+                    {photo.likes_count}
+                  </span>
+                </button>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
