@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* Mobile Menu Button & Theme Toggle */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={isScrolled ? "text-accent-foreground hover:text-white" : ""}>
+            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={isScrolled ? "text-accent-foreground hover:text-white" : ""} aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}>
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
