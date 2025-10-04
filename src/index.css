@@ -50,10 +50,19 @@ All colors MUST be HSL.
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(30 25% 96%), hsl(10 55% 88%));
     --gradient-accent: linear-gradient(135deg, hsl(10 60% 75%), hsl(30 30% 92%));
+    --gradient-mesh: radial-gradient(at 27% 37%, hsl(10 60% 75% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 97% 21%, hsl(190 20% 80% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 52% 99%, hsl(30 30% 92% / 0.10) 0px, transparent 50%),
+                     radial-gradient(at 10% 29%, hsl(10 55% 85% / 0.08) 0px, transparent 50%);
     
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(20 20% 25% / 0.08);
     --shadow-card: 0 8px 30px hsl(20 20% 25% / 0.10);
+    --shadow-glow: 0 0 40px hsl(10 60% 75% / 0.2);
+    
+    /* Glassmorphism */
+    --glass-bg: hsl(var(--card) / 0.7);
+    --glass-border: hsl(var(--border) / 0.3);
   }
 
   .dark {
@@ -88,6 +97,11 @@ All colors MUST be HSL.
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(0 0% 0% / 0.3);
     --shadow-card: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(10 60% 75% / 0.3);
+    
+    /* Glassmorphism */
+    --glass-bg: hsl(var(--card) / 0.5);
+    --glass-border: hsl(var(--border) / 0.2);
   }
 }
 
@@ -140,6 +154,48 @@ All colors MUST be HSL.
   }
   .font-handwriting {
     font-family: 'Caveat', cursive;
+  }
+  
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Smooth animations */
+  @keyframes float-slow {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, -30px) rotate(5deg); }
+    66% { transform: translate(-20px, 20px) rotate(-5deg); }
+  }
+  
+  @keyframes float-medium {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(-25px, 25px) rotate(-3deg); }
+    66% { transform: translate(25px, -25px) rotate(3deg); }
+  }
+  
+  @keyframes float-fast {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(20px, 30px) rotate(4deg); }
+    66% { transform: translate(-30px, -20px) rotate(-4deg); }
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+  }
+  
+  .animate-float-medium {
+    animation: float-medium 15s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float-fast 12s ease-in-out infinite;
   }
 
   /* Fix touch target size for Lovable badge close button */

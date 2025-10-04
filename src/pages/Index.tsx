@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import BackgroundMesh from "@/components/BackgroundMesh";
 
 // Lazy load components below the fold
 const About = lazy(() => import("@/components/About"));
@@ -15,7 +16,8 @@ const Contact = lazy(() => import("@/components/Contact"));
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <BackgroundMesh />
       <Navbar />
       <Hero />
       <Suspense fallback={<div className="h-screen" />}>
