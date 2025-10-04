@@ -144,9 +144,15 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Submission saved to database");
 
     // Send notification email to you
+    const recipientEmail = Deno.env.get("CONTACT_EMAIL_RECIPIENT");
+    if (!recipientEmail) {
+      console.error("CONTACT_EMAIL_RECIPIENT environment variable not set");
+      throw new Error("Email configuration error");
+    }
+
     const notificationEmail = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: ["dsahare75@gmail.com"],
+      to: [recipientEmail],
       subject: `New Contact Form Submission from ${safeName}`,
       html: `
         <h2>New Contact Form Submission</h2>
