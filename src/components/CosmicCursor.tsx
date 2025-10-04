@@ -87,37 +87,61 @@ const CosmicCursor = () => {
       // Main cursor with layered rings
       const { x, y } = mousePos.current;
 
+      // Determine theme-based sizes and styles
+      const isDark = theme === "dark";
+      const outerR = isDark ? 30 : 36;
+      const ringR = isDark ? 12 : 13;
+      const coreR = isDark ? 8 : 9;
+      const ringWidth = isDark ? 2 : 2.5;
+
+      // Optional subtle drop shadow in light theme for contrast
+      if (!isDark) {
+        ctx.beginPath();
+        ctx.arc(x, y, outerR + 2, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,0,0,0.08)";
+        ctx.fill();
+      }
+
       // Outer glow ring
-      const outerGradient = ctx.createRadialGradient(x, y, 0, x, y, 30);
+      const outerGradient = ctx.createRadialGradient(x, y, 0, x, y, outerR);
       outerGradient.addColorStop(0, colors.accent);
-      outerGradient.addColorStop(0.5, colors.secondary.replace(/[\d.]+\)$/g, "0.2)"));
+      outerGradient.addColorStop(0.5, colors.secondary.replace(/[\d.]+\)$/g, "0.25)"));
       outerGradient.addColorStop(1, "rgba(0,0,0,0)");
       ctx.beginPath();
-      ctx.arc(x, y, 30, 0, Math.PI * 2);
+      ctx.arc(x, y, outerR, 0, Math.PI * 2);
       ctx.fillStyle = outerGradient;
       ctx.fill();
 
       // Middle ring with border
       ctx.beginPath();
-      ctx.arc(x, y, 12, 0, Math.PI * 2);
+      ctx.arc(x, y, ringR, 0, Math.PI * 2);
       ctx.strokeStyle = colors.secondary;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = ringWidth;
       ctx.stroke();
 
       // Inner core with gradient
-      const coreGradient = ctx.createRadialGradient(x, y, 0, x, y, 8);
-      coreGradient.addColorStop(0, "rgba(255, 255, 255, 0.9)");
+      const coreGradient = ctx.createRadialGradient(x, y, 0, x, y, coreR);
+      coreGradient.addColorStop(0, isDark ? "rgba(255, 255, 255, 0.9)" : "rgba(255,255,255,0.95)");
       coreGradient.addColorStop(0.6, colors.primary);
       coreGradient.addColorStop(1, colors.secondary);
       ctx.beginPath();
-      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.arc(x, y, coreR, 0, Math.PI * 2);
       ctx.fillStyle = coreGradient;
       ctx.fill();
 
+      // Crisp outline for visibility on light backgrounds
+      if (!isDark) {
+        ctx.beginPath();
+        ctx.arc(x, y, coreR, 0, Math.PI * 2);
+        ctx.strokeStyle = "rgba(0,0,0,0.25)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+
       // Center dot
       ctx.beginPath();
-      ctx.arc(x, y, 2, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 255, 255, 0.95)";
+      ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255, 255, 255, 0.98)";
       ctx.fill();
 
       animationFrameId.current = requestAnimationFrame(animate);
@@ -141,7 +165,7 @@ const CosmicCursor = () => {
     <canvas
       ref={canvasRef}
       className="cosmic-cursor-canvas fixed top-0 left-0 w-full h-full pointer-events-none z-[9999]"
-      style={{ mixBlendMode: "screen" }}
+      style={{ mixBlendMode: theme === "dark" ? "screen" : "multiply" }}
     />
   );
 };
