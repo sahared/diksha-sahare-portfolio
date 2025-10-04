@@ -140,7 +140,7 @@ const Hero = () => {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=448&h=448&fit=crop&fm=webp&q=80" alt="Profile" className="w-full h-full object-cover" fetchPriority="high" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=448&h=448&fit=crop&fm=webp&q=80" alt="Profile" width="448" height="448" className="w-full h-full object-cover" fetchPriority="high" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full blur-3xl opacity-40"></div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-40"></div>

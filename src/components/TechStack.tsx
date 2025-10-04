@@ -67,7 +67,10 @@ const TechStack = () => {
             <img
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=512&h=320&fit=crop&fm=webp&q=80"
               alt="Developer workspace"
+              width="512"
+              height="320"
               className="w-full max-w-lg ml-auto rounded-2xl shadow-card"
+              loading="lazy"
             />
           </div>
         </div>

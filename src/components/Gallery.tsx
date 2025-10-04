@@ -76,8 +76,11 @@ const Gallery = () => {
               >
                 <img 
                   src={photo.url} 
-                  alt={photo.caption} 
+                  alt={photo.caption}
+                  width="298"
+                  height="200" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 
                 {/* Overlay with gradient - shows on hover */}
