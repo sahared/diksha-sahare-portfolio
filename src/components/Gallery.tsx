@@ -1,7 +1,7 @@
 import { Heart, Calendar, MapPin } from "lucide-react";
 import { useGalleryLikes } from "@/hooks/useGalleryLikes";
 import { cn } from "@/lib/utils";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 // Generate random rotation for polaroid effect
 const getRandomRotation = (index: number) => {
@@ -11,15 +11,23 @@ const getRandomRotation = (index: number) => {
 
 const Gallery = () => {
   const { photos, isLoading, toggleLike, isLiked } = useGalleryLikes();
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
   
   // Assign random rotations that persist
   const photosWithRotation = useMemo(() => 
-    photos.map((photo, index) => ({
-      ...photo,
-      rotation: getRandomRotation(index)
-    })),
-    [photos]
+    photos
+      .filter(photo => !imageErrors.has(photo.id))
+      .map((photo, index) => ({
+        ...photo,
+        rotation: getRandomRotation(index)
+      })),
+    [photos, imageErrors]
   );
+
+  const handleImageError = (photoId: string) => {
+    console.warn(`Failed to load image for photo ${photoId}`);
+    setImageErrors(prev => new Set(prev).add(photoId));
+  };
 
   if (isLoading) {
     return (
@@ -69,6 +77,7 @@ const Gallery = () => {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      onError={() => handleImageError(photo.id)}
                     />
                     
                     {/* Like button - top right */}
