@@ -58,14 +58,14 @@ const Navbar = () => {
       behavior: "smooth"
     });
   };
-  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-card/95 backdrop-blur-md shadow-soft" : "bg-transparent"}`}>
+  return <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-gradient-to-r from-accent/95 via-secondary/95 to-accent/95 backdrop-blur-md shadow-glow border-b-2 border-accent/30" : "bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm border-b border-border/20"}`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <button onClick={scrollToTop} className="text-2xl font-bold text-foreground hover:text-accent transition-colors">&lt;DS&gt;</button>
+          <button onClick={scrollToTop} className={`text-2xl font-bold transition-all duration-300 ${isScrolled ? "text-accent-foreground scale-105" : "text-accent"} hover:scale-110`}>&lt;Diksha Sahare /&gt;</button>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-6 items-center">
-            {navItems.map(item => <button key={item.name} onClick={() => scrollToSection(item.href)} className="text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+            {navItems.map(item => <button key={item.name} onClick={() => scrollToSection(item.href)} className={`text-sm font-medium transition-all duration-200 ${isScrolled ? "text-accent-foreground hover:text-white" : "text-foreground hover:text-accent"} relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-current after:transition-all after:duration-300`}>
                 {item.name}
               </button>)}
             <ThemeToggle />
@@ -74,7 +74,7 @@ const Navbar = () => {
           {/* Mobile Menu Button & Theme Toggle */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className={isScrolled ? "text-accent-foreground hover:text-white" : ""}>
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>

@@ -105,27 +105,25 @@ const Contact = () => {
       icon: <Briefcase className="text-accent" size={20} />,
       label: "Hire Me",
       value: "",
-      link: "#",
+      link: "https://calendly.com/dsahare75",
     },
     {
       icon: <Mail className="text-accent" size={20} />,
       label: "Email",
-      value: "yourname@example.com",
-      link: "mailto:yourname@example.com",
+      value: "sahare.d@northeastern.edu",
+      link: "mailto:sahare.d@northeastern.edu",
     },
     {
       icon: <Phone className="text-accent" size={20} />,
       label: "Phone",
-      value: "+1 (XXX) XXX-XXXX",
-      link: "tel:+1XXXXXXXXXX",
+      value: "Available on request",
+      link: "#",
     },
   ];
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Github size={20} />, href: "#", label: "GitHub" },
-    { icon: <Code size={20} />, href: "#", label: "CodePen" },
-    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Linkedin size={20} />, href: "https://in.linkedin.com/in/dikshasahare", label: "LinkedIn" },
+    { icon: <Github size={20} />, href: "https://github.com/saharediksha", label: "GitHub" },
   ];
 
   return (
@@ -300,7 +298,7 @@ const Contact = () => {
         {/* Footer */}
         <div className="mt-20 text-center">
           <p className="text-sm text-muted-foreground">
-            With <Heart className="inline text-accent fill-accent" size={16} /> Your Name
+            With <Heart className="inline text-accent fill-accent" size={16} /> Diksha Sahare
           </p>
         </div>
       </div>

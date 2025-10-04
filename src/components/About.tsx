@@ -46,44 +46,32 @@ const About = () => {
             
             <div className="space-y-4 text-foreground/80 leading-relaxed">
               <p>
-                Hello there! My name is <span className="font-semibold text-foreground">Your Name</span>
+                Hi, I'm <span className="font-semibold text-foreground">Diksha Sahare</span>, a software engineer passionate about building applications that solve real-world problems and create value for users.
               </p>
               
               <p className="italic text-sm text-muted-foreground">
-                "A builder at heart, a problem-solver by nature, and someone who's endlessly curious about how things work."
+                "My journey started in Electronics Engineering, but I quickly found my calling in software development, where I could blend problem-solving with creativity."
               </p>
 
               <p>
-                I'm a passionate <span className="text-accent font-medium">Full-Stack Software Engineer</span> and a{" "}
-                <span className="text-secondary font-medium">Computer Science Master's</span> student at{" "}
-                <span className="text-secondary font-medium">Northeastern University, Boston</span>, with 4+ years of
-                experience crafting scalable, user-focused applications. My journey spans a diverse tech landscape — from{" "}
-                <span className="text-secondary font-medium">MEAN</span> and{" "}
-                <span className="text-secondary font-medium">MERN</span> stacks to{" "}
-                <span className="text-secondary font-medium">Ruby on Rails, Java</span>, and even{" "}
-                <span className="text-secondary font-medium">Android app development</span>. Recently, I've been diving deeper
-                into the world of <span className="text-accent font-medium">AI engineering</span>, building intelligent systems
-                that bridge the gap between human insight and machine learning.
+                I've worked across <span className="text-accent font-medium">full-stack development, Salesforce, and cloud-native applications</span>, gaining experience in both enterprise-scale systems and lean, fast-moving projects. At{" "}
+                <span className="text-secondary font-medium">Accenture</span>, I played dual roles as a{" "}
+                <span className="text-secondary font-medium">Full-Stack Java Developer</span> and{" "}
+                <span className="text-secondary font-medium">Salesforce Developer/Administrator</span>, working on projects that ranged from data migration tools to e-commerce platforms.
               </p>
 
               <p>
-                Whether it's building sleek UIs, architecting backend systems, or deploying robust full-stack and AI-powered
-                solutions, I love every part of the process.
+                Now, as a graduate student at <span className="text-accent font-medium">Northeastern University</span>, I'm diving deeper into{" "}
+                <span className="text-secondary font-medium">application engineering, advanced web design, and cloud computing</span>, while working on projects that integrate modern technologies like{" "}
+                <span className="text-secondary font-medium">AWS, Node.js, React, and MongoDB</span>.
               </p>
 
               <p>
-                To me, code is more than syntax — it's a creative canvas where ideas come to life. Solving challenging
-                problems, optimizing systems, or just refactoring messy logic into something beautiful? That's my kind of fun.
+                Outside of code, I'm curious about <span className="text-accent font-medium">user experience, design, and how technology scales globally</span>. I believe in building systems that aren't just functional, but also intuitive and sustainable.
               </p>
 
               <p>
-                Outside of tech, I'm just as adventurous. I recharge by hiking new trails, traveling to offbeat places, and
-                getting competitive in cricket, volleyball, or a good game of chess.
-              </p>
-
-              <p>
-                This site is my little corner of the internet — a place to showcase my work, share what I'm learning, and
-                connect with like-minded people. Let's build, learn, and grow together.
+                📍 Currently based in <span className="font-semibold">Boston, MA</span>
               </p>
             </div>
 

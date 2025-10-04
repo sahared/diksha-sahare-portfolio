@@ -84,64 +84,21 @@ const CosmicCursor = () => {
       // Remove fully faded points
       cursorTrail.current = cursorTrail.current.filter((p) => p.opacity > 0.01);
 
-      // Main cursor with layered rings
+      // Minimalistic cursor - simple clean dot
       const { x, y } = mousePos.current;
-
-      // Determine theme-based sizes and styles
       const isDark = theme === "dark";
-      const outerR = isDark ? 30 : 36;
-      const ringR = isDark ? 12 : 13;
-      const coreR = isDark ? 8 : 9;
-      const ringWidth = isDark ? 2 : 2.5;
 
-      // Optional subtle drop shadow in light theme for contrast
-      if (!isDark) {
-        ctx.beginPath();
-        ctx.arc(x, y, outerR + 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0,0,0,0.08)";
-        ctx.fill();
-      }
-
-      // Outer glow ring
-      const outerGradient = ctx.createRadialGradient(x, y, 0, x, y, outerR);
-      outerGradient.addColorStop(0, colors.accent);
-      outerGradient.addColorStop(0.5, colors.secondary.replace(/[\d.]+\)$/g, "0.25)"));
-      outerGradient.addColorStop(1, "rgba(0,0,0,0)");
+      // Simple outer ring
       ctx.beginPath();
-      ctx.arc(x, y, outerR, 0, Math.PI * 2);
-      ctx.fillStyle = outerGradient;
-      ctx.fill();
-
-      // Middle ring with border
-      ctx.beginPath();
-      ctx.arc(x, y, ringR, 0, Math.PI * 2);
-      ctx.strokeStyle = colors.secondary;
-      ctx.lineWidth = ringWidth;
+      ctx.arc(x, y, 10, 0, Math.PI * 2);
+      ctx.strokeStyle = isDark ? "rgba(242, 188, 156, 0.6)" : "rgba(228, 114, 68, 0.6)";
+      ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      // Inner core with gradient
-      const coreGradient = ctx.createRadialGradient(x, y, 0, x, y, coreR);
-      coreGradient.addColorStop(0, isDark ? "rgba(255, 255, 255, 0.9)" : "rgba(255,255,255,0.95)");
-      coreGradient.addColorStop(0.6, colors.primary);
-      coreGradient.addColorStop(1, colors.secondary);
+      // Small center dot
       ctx.beginPath();
-      ctx.arc(x, y, coreR, 0, Math.PI * 2);
-      ctx.fillStyle = coreGradient;
-      ctx.fill();
-
-      // Crisp outline for visibility on light backgrounds
-      if (!isDark) {
-        ctx.beginPath();
-        ctx.arc(x, y, coreR, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(0,0,0,0.25)";
-        ctx.lineWidth = 1;
-        ctx.stroke();
-      }
-
-      // Center dot
-      ctx.beginPath();
-      ctx.arc(x, y, 2.2, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255, 255, 255, 0.98)";
+      ctx.arc(x, y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = isDark ? "rgba(242, 188, 156, 0.9)" : "rgba(228, 114, 68, 0.9)";
       ctx.fill();
 
       animationFrameId.current = requestAnimationFrame(animate);

@@ -5,68 +5,36 @@ import { Github, ExternalLink } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "Pass the Plate",
-      description: "Food sharing platform connecting communities",
-      image: "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#", demo: "#" },
-      color: "from-[#b0c4b1]/20 to-[#edafb8]/20",
-    },
-    {
-      title: "StudyBuddy",
-      description: "Collaborative learning and study management platform",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#", demo: "#" },
+      title: "CloudHealth",
+      description: "Web Service Health Monitoring API with auto-scaling EC2, CI/CD pipeline, and real-time observability",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=290&h=193&fit=crop&fm=webp&q=80",
+      tags: ["Cloud Native"],
+      links: { github: "https://github.com/saharediksha" },
       color: "from-accent/20 to-secondary/20",
     },
     {
-      title: "HireU",
-      description: "AI-powered recruitment and hiring platform",
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#", demo: "#" },
+      title: "HomeBase",
+      description: "Full-stack real estate platform with PWA capabilities, real-time chat, and internationalization",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=290&h=193&fit=crop&fm=webp&q=80",
+      tags: ["Full Stack"],
+      links: { github: "https://github.com/saharediksha" },
       color: "from-secondary/20 to-muted/20",
     },
     {
-      title: "PDF Sensei",
-      description: "Intelligent PDF processing and analysis tool",
-      image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#", demo: "#" },
+      title: "MediLink",
+      description: "Healthcare Management System connecting hospitals, pharmacies, and diagnostics with secure record storage",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=290&h=193&fit=crop&fm=webp&q=80",
+      tags: ["Desktop App"],
+      links: { github: "https://github.com/saharediksha" },
       color: "from-muted/20 to-accent/20",
     },
     {
-      title: "Context State",
-      description: "Advanced state management library for React",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#" },
-      color: "from-accent/20 to-[#b0c4b1]/20",
-    },
-    {
-      title: "Portable Antivirus System",
-      description: "Security solution for portable devices",
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#" },
-      color: "from-secondary/20 to-accent/20",
-    },
-    {
-      title: "Vaxicov",
-      description: "Vaccination tracking and management system",
-      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Open Source"],
-      links: { github: "#", demo: "#" },
-      color: "from-muted/20 to-secondary/20",
-    },
-    {
-      title: "Image Processing App",
-      description: "Advanced image editing and processing tools",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=290&h=193&fit=crop&fm=webp&q=80",
-      tags: ["Private"],
-      links: { github: "#" },
-      color: "from-accent/20 to-muted/20",
+      title: "Freemat SquareFeet",
+      description: "Property search web application with enhanced mobile-first design",
+      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=290&h=193&fit=crop&fm=webp&q=80",
+      tags: ["Web Application"],
+      links: { github: "https://github.com/saharediksha" },
+      color: "from-[#b0c4b1]/20 to-[#edafb8]/20",
     },
   ];
 
@@ -112,15 +80,11 @@ const Projects = () => {
 
                 <div className="flex gap-2">
                   {project.links.github && (
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <Github size={14} className="mr-1" />
-                      GitHub
-                    </Button>
-                  )}
-                  {project.links.demo && (
-                    <Button size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground">
-                      <ExternalLink size={14} className="mr-1" />
-                      Demo
+                    <Button asChild size="sm" variant="outline" className="flex-1">
+                      <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                        <Github size={14} className="mr-1" />
+                        GitHub
+                      </a>
                     </Button>
                   )}
                 </div>
