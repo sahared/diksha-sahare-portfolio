@@ -2,6 +2,7 @@ import { Github, Linkedin, Mail, Twitter, Code, Download, ArrowRight, MapPin, Gr
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
+import FlowerDecor from "@/components/FlowerDecor";
 const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const roles = ["Full-Stack Developer", "Problem Solver", "AI Engineer", "Open Source Contributor"];
@@ -57,8 +58,11 @@ const Hero = () => {
       behavior: "smooth"
     });
   };
-  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background">
-      <div className="container mx-auto">
+  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background relative overflow-hidden">
+      <FlowerDecor variant={3} className="absolute top-10 left-10 opacity-40 animate-float-slow" size={80} />
+      <FlowerDecor variant={5} className="absolute top-32 right-16 opacity-30 animate-float-slow" size={100} />
+      <FlowerDecor variant={1} className="absolute bottom-20 left-1/4 opacity-25" size={70} />
+      <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="flex flex-wrap gap-2">

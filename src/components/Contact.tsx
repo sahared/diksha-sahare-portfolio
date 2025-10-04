@@ -1,6 +1,7 @@
 import { Mail, Phone, Briefcase, Calendar, Send } from "lucide-react";
 import { Github, Linkedin, Twitter, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FlowerDecor from "@/components/FlowerDecor";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
@@ -128,11 +129,16 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-card">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
+    <section id="contact" className="py-20 px-4 bg-card relative overflow-hidden">
+      <FlowerDecor variant={1} className="absolute top-10 left-12 opacity-35 animate-float-slow" size={85} />
+      <FlowerDecor variant={5} className="absolute top-40 right-10 opacity-30" size={95} />
+      <FlowerDecor variant={4} className="absolute bottom-40 left-1/3 opacity-25" size={70} />
+      <div className="container mx-auto relative z-10">
+        <div className="text-center mb-12 relative">
+          <FlowerDecor variant={2} className="absolute -top-4 left-1/2 -translate-x-20 opacity-40" size={60} />
           <h2 className="text-4xl font-bold text-accent mb-4">Get in touch</h2>
           <p className="text-muted-foreground">Let's build something together :)</p>
+          <FlowerDecor variant={6} className="absolute -top-4 right-1/2 translate-x-20 opacity-40" size={60} />
         </div>
 
         <div className="max-w-4xl mx-auto">

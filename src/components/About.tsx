@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import FlowerDecor from "@/components/FlowerDecor";
 
 const About = () => {
   const galleryImages = [
@@ -12,8 +13,10 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 bg-card">
-      <div className="container mx-auto">
+    <section id="about" className="py-20 px-4 bg-card relative overflow-hidden">
+      <FlowerDecor variant={2} className="absolute top-16 right-10 opacity-30" size={90} />
+      <FlowerDecor variant={4} className="absolute bottom-32 left-8 opacity-25 animate-float-slow" size={75} />
+      <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="grid grid-cols-2 gap-4">
             {galleryImages.map((img, index) => (
@@ -31,8 +34,10 @@ const About = () => {
                 />
               </div>
             ))}
-            <div className="col-span-2 mt-4">
+            <div className="col-span-2 mt-4 relative">
+              <FlowerDecor variant={6} className="absolute -left-8 top-0 opacity-40" size={50} />
               <h2 className="font-display text-4xl text-center text-foreground/70">Memory Lane</h2>
+              <FlowerDecor variant={3} className="absolute -right-8 top-0 opacity-40" size={50} />
             </div>
           </div>
 
