@@ -85,7 +85,7 @@ export const useGalleryLikes = () => {
       });
       
       if (error) throw error;
-      // Database trigger automatically updates likes_count
+      // likes_count is now automatically updated by database trigger
     },
     onMutate: async (photoId) => {
       await queryClient.cancelQueries({ queryKey: ["gallery-photos"] });
@@ -133,7 +133,7 @@ export const useGalleryLikes = () => {
         .eq("user_identifier", userIdentifier);
       
       if (error) throw error;
-      // Database trigger automatically updates likes_count
+      // likes_count is now automatically updated by database trigger
     },
     onMutate: async (photoId) => {
       await queryClient.cancelQueries({ queryKey: ["gallery-photos"] });
