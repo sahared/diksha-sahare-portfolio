@@ -14,6 +14,7 @@ const contactFormSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Please enter a valid email").max(255, "Email must be less than 255 characters"),
   message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+  honeypot: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -158,6 +159,22 @@ const Contact = () => {
             <div className="bg-card rounded-2xl p-8 shadow-card border border-border/50">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send me a message</h3>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Honeypot field - hidden from real users */}
+                <input
+                  {...register("honeypot")}
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{
+                    position: "absolute",
+                    left: "-9999px",
+                    width: "1px",
+                    height: "1px",
+                    opacity: 0,
+                  }}
+                  aria-hidden="true"
+                />
+                
                 <div>
                   <Input
                     {...register("name")}

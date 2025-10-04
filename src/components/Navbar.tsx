@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Menu, X, LogOut, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import ThemeToggle from "@/components/ThemeToggle";
+import type { User } from "@supabase/supabase-js";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: "About", href: "#about" },
@@ -27,11 +33,34 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      toast.error("Error logging out");
+    } else {
+      toast.success("Logged out successfully");
     }
   };
 
@@ -57,6 +86,17 @@ const Navbar = () => {
               </button>
             ))}
             <ThemeToggle />
+            {user ? (
+              <Button variant="outline" size="sm" onClick={handleLogout}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" onClick={() => navigate("/auth")}>
+                <LogIn className="h-4 w-4 mr-2" />
+                Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button & Theme Toggle */}
@@ -84,6 +124,17 @@ const Navbar = () => {
                 {item.name}
               </button>
             ))}
+            {user ? (
+              <Button variant="outline" size="sm" onClick={handleLogout} className="w-full">
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </Button>
+            ) : (
+              <Button variant="outline" size="sm" onClick={() => navigate("/auth")} className="w-full">
+                <LogIn className="h-4 w-4 mr-2" />
+                Login
+              </Button>
+            )}
           </div>
         )}
       </div>

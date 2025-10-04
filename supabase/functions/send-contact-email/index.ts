@@ -13,6 +13,7 @@ interface ContactFormRequest {
   name: string;
   email: string;
   message: string;
+  honeypot?: string; // Anti-spam honeypot field
 }
 
 // HTML escape function to prevent XSS in emails
@@ -39,7 +40,19 @@ const handler = async (req: Request): Promise<Response> => {
     const userAgent = req.headers.get("user-agent") || "unknown";
 
     // Parse and validate request body
-    const { name, email, message }: ContactFormRequest = await req.json();
+    const { name, email, message, honeypot }: ContactFormRequest = await req.json();
+
+    // Anti-spam honeypot check
+    if (honeypot) {
+      console.log("Honeypot triggered - potential spam detected");
+      return new Response(
+        JSON.stringify({ error: "Invalid submission" }),
+        { 
+          status: 400, 
+          headers: { ...corsHeaders, "Content-Type": "application/json" } 
+        }
+      );
+    }
 
     // Input validation
     if (!name || name.trim().length === 0 || name.trim().length > 100) {
