@@ -1,8 +1,62 @@
-import { Mail, Phone, Briefcase, Calendar } from "lucide-react";
+import { Mail, Phone, Briefcase, Calendar, Send } from "lucide-react";
 import { Github, Linkedin, Twitter, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { useState } from "react";
+
+const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Please enter a valid email").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    watch,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+  });
+
+  const messageLength = watch("message")?.length || 0;
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    try {
+      const { data: responseData, error } = await supabase.functions.invoke("send-contact-email", {
+        body: data,
+      });
+
+      if (error) throw error;
+
+      toast.success("Message sent successfully! I'll get back to you soon.");
+      reset();
+    } catch (error: any) {
+      console.error("Error submitting contact form:", error);
+      
+      if (error.message?.includes("Too many submissions")) {
+        toast.error("You've reached the submission limit. Please try again later.");
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactMethods = [
     {
       icon: <Briefcase className="text-accent" size={20} />,
@@ -96,6 +150,72 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="mt-12">
+            <div className="bg-card rounded-2xl p-8 shadow-card border border-border/50">
+              <h3 className="text-2xl font-bold text-foreground mb-6">Send me a message</h3>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div>
+                  <Input
+                    {...register("name")}
+                    placeholder="Your Name"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  />
+                  {errors.name && (
+                    <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Input
+                    {...register("email")}
+                    type="email"
+                    placeholder="Your Email"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  />
+                  {errors.email && (
+                    <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Textarea
+                    {...register("message")}
+                    placeholder="Your Message"
+                    className="w-full min-h-[150px] resize-none"
+                    disabled={isSubmitting}
+                  />
+                  <div className="flex justify-between items-center mt-1">
+                    {errors.message ? (
+                      <p className="text-destructive text-sm">{errors.message.message}</p>
+                    ) : (
+                      <p className="text-muted-foreground text-sm">
+                        {messageLength}/2000 characters
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+                >
+                  {isSubmitting ? (
+                    <>Sending...</>
+                  ) : (
+                    <>
+                      <Send size={16} className="mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </Button>
+              </form>
             </div>
           </div>
         </div>
