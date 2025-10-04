@@ -49,17 +49,17 @@ const CosmicCursor = () => {
     const getColors = () => {
       if (theme === "dark") {
         return {
-          primary: "rgba(208, 130, 113, 1)", // Terracotta
-          secondary: "rgba(225, 155, 100, 0.8)", // Burnt orange
-          accent: "rgba(235, 180, 160, 0.6)", // Warm clay
-          trail: "rgba(208, 130, 113, 0.3)",
+          primary: "rgba(153, 123, 230, 1)", // Soft purple hsl(250 70% 65%)
+          secondary: "rgba(189, 139, 242, 0.8)", // Pale lavender hsl(280 65% 70%)
+          accent: "rgba(189, 139, 242, 0.6)",
+          trail: "rgba(153, 123, 230, 0.3)",
         };
       }
       return {
-        primary: "rgba(208, 130, 113, 0.9)",
-        secondary: "rgba(217, 170, 155, 0.7)",
-        accent: "rgba(225, 155, 100, 0.5)",
-        trail: "rgba(208, 130, 113, 0.2)",
+        primary: "rgba(153, 123, 230, 0.9)", // Soft purple
+        secondary: "rgba(189, 139, 242, 0.7)", // Pale lavender
+        accent: "rgba(153, 123, 230, 0.5)",
+        trail: "rgba(153, 123, 230, 0.2)",
       };
     };
 
