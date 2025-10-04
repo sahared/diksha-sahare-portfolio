@@ -10,65 +10,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light Theme - Warm Organic Palette */
-    --background: 35 45% 98%;
-    --foreground: 25 15% 25%;
+    /* Light Theme - Custom Palette: #FDE8D3, #F3C3B2, #99CDD8, #657166, #CFD6C4, #F1E4A0, #F2BC9C */
+    --background: 32 86% 91%; /* #FDE8D3 - peachy beige background */
+    --foreground: 123 6% 44%; /* #657166 - muted green text */
 
-    --card: 35 45% 98%;
-    --card-foreground: 25 15% 25%;
+    --card: 32 86% 91%; /* #FDE8D3 */
+    --card-foreground: 123 6% 44%; /* #657166 */
 
-    --popover: 35 45% 98%;
-    --popover-foreground: 25 15% 25%;
+    --popover: 32 86% 91%; /* #FDE8D3 */
+    --popover-foreground: 123 6% 44%; /* #657166 */
 
-    --primary: 15 70% 58%;
-    --primary-foreground: 35 45% 98%;
+    --primary: 23 76% 78%; /* #F2BC9C - peachy orange */
+    --primary-foreground: 123 6% 44%; /* #657166 */
 
-    --secondary: 130 30% 88%;
-    --secondary-foreground: 25 15% 25%;
+    --secondary: 85 19% 81%; /* #CFD6C4 - light sage */
+    --secondary-foreground: 123 6% 44%; /* #657166 */
 
-    --muted: 35 25% 92%;
-    --muted-foreground: 25 10% 45%;
+    --muted: 85 19% 81%; /* #CFD6C4 */
+    --muted-foreground: 123 6% 44%; /* #657166 */
 
-    --accent: 10 55% 78%;
-    --accent-foreground: 25 15% 25%;
+    --accent: 193 42% 72%; /* #99CDD8 - soft blue */
+    --accent-foreground: 123 6% 44%; /* #657166 */
 
     --destructive: 0 70% 55%;
-    --destructive-foreground: 35 45% 98%;
+    --destructive-foreground: 32 86% 91%;
 
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 15 70% 58%;
+    --border: 85 19% 81%; /* #CFD6C4 */
+    --input: 85 19% 81%; /* #CFD6C4 */
+    --ring: 23 76% 78%; /* #F2BC9C */
 
     --radius: 0.75rem;
 
-    /* Organic Warm Palette */
-    --soft-mint: 130 30% 88%;
-    --butter-yellow: 45 85% 85%;
-    --peachy-beige: 35 45% 85%;
-    --dusty-rose: 10 55% 78%;
-    --terracotta: 15 70% 58%;
-    --soft-blue: 200 40% 82%;
-    --pale-mint: 130 35% 90%;
-    --cream-peach: 30 60% 92%;
-    --blush-pink: 350 55% 85%;
-    --sage-green: 130 25% 65%;
-    --deep-sage: 130 20% 45%;
+    /* Custom Color Palette Variables */
+    --peachy-beige: 32 86% 91%; /* #FDE8D3 */
+    --peachy-pink: 15 68% 83%; /* #F3C3B2 */
+    --soft-blue: 193 42% 72%; /* #99CDD8 */
+    --muted-green: 123 6% 44%; /* #657166 */
+    --light-sage: 85 19% 81%; /* #CFD6C4 */
+    --soft-yellow: 48 74% 78%; /* #F1E4A0 */
+    --peachy-orange: 23 76% 78%; /* #F2BC9C */
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(35 45% 98%), hsl(15 70% 58% / 0.08));
-    --gradient-accent: linear-gradient(135deg, hsl(10 55% 78% / 0.2), hsl(130 30% 88% / 0.2));
-    --gradient-mesh: radial-gradient(at 27% 37%, hsl(130 30% 88% / 0.1) 0px, transparent 50%),
-                     radial-gradient(at 97% 21%, hsl(15 70% 58% / 0.08) 0px, transparent 50%),
-                     radial-gradient(at 52% 99%, hsl(10 55% 78% / 0.06) 0px, transparent 50%);
+    --gradient-hero: linear-gradient(135deg, hsl(32 86% 91%), hsl(23 76% 78% / 0.3));
+    --gradient-accent: linear-gradient(135deg, hsl(193 42% 72% / 0.3), hsl(85 19% 81% / 0.3));
+    --gradient-mesh: radial-gradient(at 27% 37%, hsl(85 19% 81% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 97% 21%, hsl(23 76% 78% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 52% 99%, hsl(193 42% 72% / 0.1) 0px, transparent 50%);
     
     /* Shadows */
-    --shadow-soft: 0 2px 12px hsl(15 60% 58% / 0.08);
-    --shadow-card: 0 4px 20px hsl(15 50% 58% / 0.12);
-    --shadow-glow: 0 0 32px hsl(25 70% 68% / 0.2);
+    --shadow-soft: 0 2px 12px hsl(23 76% 78% / 0.15);
+    --shadow-card: 0 4px 20px hsl(23 76% 78% / 0.2);
+    --shadow-glow: 0 0 32px hsl(193 42% 72% / 0.25);
     
     /* Glassmorphism */
-    --glass-bg: hsl(35 40% 95% / 0.75);
-    --glass-border: hsl(35 20% 88% / 0.5);
+    --glass-bg: hsl(32 86% 91% / 0.85);
+    --glass-border: hsl(85 19% 81% / 0.6);
   }
 
   .dark {
