@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const contactFormSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -21,6 +21,47 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [visitorCount, setVisitorCount] = useState(0);
+
+  useEffect(() => {
+    // Update date every minute
+    const dateInterval = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 60000);
+
+    // Fetch visitor count from contact_submissions table
+    const fetchVisitorCount = async () => {
+      const { count } = await supabase
+        .from("contact_submissions")
+        .select("*", { count: "exact", head: true });
+      
+      setVisitorCount(count || 0);
+    };
+
+    fetchVisitorCount();
+
+    // Subscribe to real-time updates
+    const channel = supabase
+      .channel("contact_submissions_count")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "contact_submissions",
+        },
+        () => {
+          setVisitorCount((prev) => prev + 1);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      clearInterval(dateInterval);
+      supabase.removeChannel(channel);
+    };
+  }, []);
   
   const {
     register,
@@ -100,11 +141,15 @@ const Contact = () => {
             <div className="space-y-6">
               <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
                 <div className="bg-accent text-accent-foreground rounded-t-lg py-3 text-center font-semibold mb-4">
-                  October
+                  {currentDate.toLocaleString("en-US", { month: "long" })}
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-foreground mb-2">2</div>
-                  <div className="text-muted-foreground">Thursday</div>
+                  <div className="text-6xl font-bold text-foreground mb-2">
+                    {currentDate.getDate()}
+                  </div>
+                  <div className="text-muted-foreground">
+                    {currentDate.toLocaleString("en-US", { weekday: "long" })}
+                  </div>
                 </div>
               </div>
 
@@ -115,7 +160,7 @@ const Contact = () => {
 
               <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50 text-center">
                 <p className="text-sm text-muted-foreground mb-2 uppercase tracking-wider">Visitors</p>
-                <p className="text-4xl font-bold text-foreground">2769</p>
+                <p className="text-4xl font-bold text-foreground">{visitorCount}</p>
               </div>
             </div>
 
