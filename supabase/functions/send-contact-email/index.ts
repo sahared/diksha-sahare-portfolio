@@ -133,7 +133,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to you
     const notificationEmail = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
-      to: ["your-email@example.com"], // TODO: Replace with your actual email
+      to: ["dsahare75@gmail.com"],
       subject: `New Contact Form Submission from ${safeName}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -155,13 +155,13 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send auto-reply to the person who contacted you
     const autoReplyEmail = await resend.emails.send({
-      from: "Your Name <onboarding@resend.dev>", // TODO: Replace "Your Name"
+      from: "Diksha Sahare <onboarding@resend.dev>",
       to: [trimmedEmail],
       subject: "Thanks for reaching out!",
       html: `
         <h2>Hi ${safeName},</h2>
         <p>Thank you for contacting me! I've received your message and will get back to you as soon as possible.</p>
-        <p>Best regards,<br>Your Name</p>
+        <p>Best regards,<br>Diksha Sahare</p>
         <hr>
         <p><small>This is an automated response. Please do not reply to this email.</small></p>
       `,
