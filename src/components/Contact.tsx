@@ -159,9 +159,18 @@ const Contact = () => {
                 </div>
               </div>
 
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-soft flex items-center justify-center gap-2">
-                <Calendar size={16} />
-                Let's have a 15 min call
+              <Button 
+                asChild
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-soft flex items-center justify-center gap-2"
+              >
+                <a 
+                  href="https://calendly.com/dsahare75" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  <Calendar size={16} />
+                  Let's have a 15 min call
+                </a>
               </Button>
 
               <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50 text-center">
