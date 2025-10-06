@@ -120,7 +120,7 @@ const Contact = () => {
   ];
 
   const socialLinks = [
-    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/dikshasahare/", label: "LinkedIn" },
+    { icon: <Linkedin size={20} />, href: "https://in.linkedin.com/in/dikshasahare", label: "LinkedIn" },
     { icon: <Github size={20} />, href: "https://github.com/saharediksha", label: "GitHub" },
   ];
 
