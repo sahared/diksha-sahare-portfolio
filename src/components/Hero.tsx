@@ -69,7 +69,7 @@ const Hero = () => {
               <Badge className="text-accent-foreground border-accent/30 bg-emerald-700">
                 🟢 Available for hire
               </Badge>
-              <Badge className="bg-secondary/20 text-secondary-foreground border-secondary/30 flex items-center gap-1">
+              <Badge className="text-secondary-foreground border-secondary/30 flex items-center gap-1 bg-orange-600">
                 <MapPin size={12} />
                 Based in Boston
               </Badge>
