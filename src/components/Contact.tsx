@@ -33,10 +33,8 @@ const Contact = () => {
 
     // Fetch visitor count from contact_submissions table
     const fetchVisitorCount = async () => {
-      const { count } = await supabase
-        .from("contact_submissions")
-        .select("*", { count: "exact", head: true });
-      
+      const { count } = await supabase.from("contact_submissions").select("*", { count: "exact", head: true });
+
       setVisitorCount(count || 0);
     };
 
@@ -54,7 +52,7 @@ const Contact = () => {
         },
         () => {
           setVisitorCount((prev) => prev + 1);
-        }
+        },
       )
       .subscribe();
 
@@ -63,7 +61,7 @@ const Contact = () => {
       supabase.removeChannel(channel);
     };
   }, []);
-  
+
   const {
     register,
     handleSubmit,
@@ -89,7 +87,7 @@ const Contact = () => {
       reset();
     } catch (error: any) {
       console.error("Error submitting contact form:", error);
-      
+
       if (error.message?.includes("Too many submissions")) {
         toast.error("You've reached the submission limit. Please try again later.");
       } else {
@@ -105,7 +103,7 @@ const Contact = () => {
       icon: <Briefcase className="text-accent" size={20} />,
       label: "Hire Me",
       value: "",
-      link: "https://www.linkedin.com/in/dikshasahare/",
+      link: "https://www.linkedin.com/messaging/compose?recipient=ACoAACWG-NIB5WG_yUVS9VoW3YKEvVE60mBYNLY",
     },
     {
       icon: <Mail className="text-accent" size={20} />,
@@ -127,7 +125,10 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 bg-[hsl(48,74%,78%)]/25 relative overflow-hidden border-t border-border/30">
+    <section
+      id="contact"
+      className="py-20 px-4 bg-[hsl(48,74%,78%)]/25 relative overflow-hidden border-t border-border/30"
+    >
       <FlowerDecor variant={1} className="absolute top-10 left-12 opacity-35 animate-float-slow" size={85} />
       <FlowerDecor variant={5} className="absolute top-40 right-10 opacity-30" size={95} />
       <FlowerDecor variant={4} className="absolute bottom-40 left-1/3 opacity-25" size={70} />
@@ -148,24 +149,18 @@ const Contact = () => {
                   {currentDate.toLocaleString("en-US", { month: "long" })}
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-foreground mb-2">
-                    {currentDate.getDate()}
-                  </div>
+                  <div className="text-6xl font-bold text-foreground mb-2">{currentDate.getDate()}</div>
                   <div className="text-muted-foreground">
                     {currentDate.toLocaleString("en-US", { weekday: "long" })}
                   </div>
                 </div>
               </div>
 
-              <Button 
+              <Button
                 asChild
                 className="w-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-soft flex items-center justify-center gap-2"
               >
-                <a 
-                  href="https://calendly.com/dsahare75" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+                <a href="https://calendly.com/dsahare75" target="_blank" rel="noopener noreferrer">
                   <Calendar size={16} />
                   Let's have a 15 min call
                 </a>
@@ -234,17 +229,10 @@ const Contact = () => {
                   }}
                   aria-hidden="true"
                 />
-                
+
                 <div>
-                  <Input
-                    {...register("name")}
-                    placeholder="Your Name"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  />
-                  {errors.name && (
-                    <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
-                  )}
+                  <Input {...register("name")} placeholder="Your Name" className="w-full" disabled={isSubmitting} />
+                  {errors.name && <p className="text-destructive text-sm mt-1">{errors.name.message}</p>}
                 </div>
 
                 <div>
@@ -255,9 +243,7 @@ const Contact = () => {
                     className="w-full"
                     disabled={isSubmitting}
                   />
-                  {errors.email && (
-                    <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
-                  )}
+                  {errors.email && <p className="text-destructive text-sm mt-1">{errors.email.message}</p>}
                 </div>
 
                 <div>
@@ -271,9 +257,7 @@ const Contact = () => {
                     {errors.message ? (
                       <p className="text-destructive text-sm">{errors.message.message}</p>
                     ) : (
-                      <p className="text-muted-foreground text-sm">
-                        {messageLength}/2000 characters
-                      </p>
+                      <p className="text-muted-foreground text-sm">{messageLength}/2000 characters</p>
                     )}
                   </div>
                 </div>
