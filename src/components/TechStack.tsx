@@ -33,7 +33,7 @@ const TechStack = () => {
   return (
     <section
       id="tech"
-      className="py-20 px-4 bg-[hsl(48,74%,78%)]/20 relative overflow-hidden border-t border-border/30"
+      className="py-20 px-4 bg-[hsl(189,80%,68%)]/10 relative overflow-hidden border-t border-border/30"
     >
       <div className="container mx-auto">
         <div className="max-w-4xl">

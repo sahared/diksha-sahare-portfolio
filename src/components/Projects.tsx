@@ -10,7 +10,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=290&h=193&fit=crop&fm=webp&q=80",
       tags: ["Cloud Native"],
       links: { github: "https://github.com/saharediksha" },
-      color: "from-accent/20 to-secondary/20",
+      color: "from-teal-light/20 to-teal-medium/20",
     },
     {
       title: "HomeBase",
@@ -18,7 +18,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=290&h=193&fit=crop&fm=webp&q=80",
       tags: ["Full Stack"],
       links: { github: "https://github.com/saharediksha" },
-      color: "from-secondary/20 to-muted/20",
+      color: "from-orange-soft/20 to-orange-warm/20",
     },
     {
       title: "MediLink",
@@ -26,7 +26,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=290&h=193&fit=crop&fm=webp&q=80",
       tags: ["Desktop App"],
       links: { github: "https://github.com/saharediksha" },
-      color: "from-muted/20 to-accent/20",
+      color: "from-teal-medium/20 to-orange-vibrant/20",
     },
     {
       title: "Freemat SquareFeet",
@@ -34,15 +34,15 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=290&h=193&fit=crop&fm=webp&q=80",
       tags: ["Web Application"],
       links: { github: "https://github.com/saharediksha" },
-      color: "from-[#b0c4b1]/20 to-[#edafb8]/20",
+      color: "from-orange-warm/20 to-teal-light/20",
     },
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 bg-[hsl(85,19%,81%)]/20 relative overflow-hidden border-t border-border/30">
+    <section id="projects" className="py-20 px-4 bg-[hsl(189,80%,68%)]/10 relative overflow-hidden border-t border-border/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-accent mb-4">Projects</h2>
+          <h2 className="text-4xl font-bold text-teal-dark dark:text-teal-light mb-4">Projects</h2>
           <p className="text-muted-foreground">Passion projects that sparked my interest</p>
         </div>
 
@@ -65,8 +65,8 @@ const Projects = () => {
                   <Badge
                     className={
                       project.tags[0] === "Open Source"
-                        ? "bg-secondary/90 text-secondary-foreground"
-                        : "bg-muted/90 text-muted-foreground"
+                        ? "bg-teal-medium/90 text-white"
+                        : "bg-orange-warm/90 text-white"
                     }
                   >
                     {project.tags[0]}

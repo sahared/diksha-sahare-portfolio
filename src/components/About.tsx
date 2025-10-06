@@ -13,7 +13,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 px-4 bg-[hsl(193,42%,72%)]/20 relative overflow-hidden border-t border-border/30">
+    <section id="about" className="py-20 px-4 bg-[hsl(23,100%,77%)]/10 relative overflow-hidden border-t border-border/30">
       <FlowerDecor variant={2} className="absolute top-16 right-10 opacity-30" size={90} />
       <FlowerDecor variant={4} className="absolute bottom-32 left-8 opacity-25 animate-float-slow" size={75} />
       <div className="container mx-auto relative z-10">

@@ -44,7 +44,7 @@ const Gallery = () => {
   }
 
   return (
-    <section id="gallery" className="py-20 px-4 bg-[hsl(15,68%,83%)]/20 relative overflow-hidden border-t border-border/30">
+    <section id="gallery" className="py-20 px-4 bg-[hsl(189,80%,68%)]/10 relative overflow-hidden border-t border-border/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-accent mb-4">Gallery</h2>

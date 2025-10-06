@@ -28,7 +28,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 px-4 bg-[hsl(23,76%,78%)]/20 relative overflow-hidden border-t border-border/30">
+    <section id="education" className="py-20 px-4 bg-[hsl(23,100%,77%)]/10 relative overflow-hidden border-t border-border/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-accent mb-4">Education</h2>

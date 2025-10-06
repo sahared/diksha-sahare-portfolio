@@ -19,19 +19,19 @@ const BackgroundMesh = () => {
 
   const getShapeColor = (index: number) => {
     const lightColors = [
-      "radial-gradient(circle, hsl(85 19% 81% / 0.4) 0%, hsl(85 19% 81% / 0.1) 50%, transparent 70%)", // light sage
-      "radial-gradient(circle, hsl(15 68% 83% / 0.35) 0%, hsl(15 68% 83% / 0.08) 50%, transparent 70%)", // peachy pink
-      "radial-gradient(circle, hsl(193 42% 72% / 0.45) 0%, hsl(193 42% 72% / 0.12) 50%, transparent 70%)", // soft blue
-      "radial-gradient(circle, hsl(23 76% 78% / 0.25) 0%, hsl(23 76% 78% / 0.06) 50%, transparent 70%)", // peachy orange
-      "radial-gradient(circle, hsl(48 74% 78% / 0.3) 0%, hsl(48 74% 78% / 0.08) 50%, transparent 70%)", // soft yellow
+      "radial-gradient(circle, hsl(188 80% 40% / 0.4) 0%, hsl(188 80% 40% / 0.1) 50%, transparent 70%)", // teal medium
+      "radial-gradient(circle, hsl(14 100% 60% / 0.35) 0%, hsl(14 100% 60% / 0.08) 50%, transparent 70%)", // orange vibrant
+      "radial-gradient(circle, hsl(189 80% 68% / 0.45) 0%, hsl(189 80% 68% / 0.12) 50%, transparent 70%)", // teal light
+      "radial-gradient(circle, hsl(23 100% 63% / 0.25) 0%, hsl(23 100% 63% / 0.06) 50%, transparent 70%)", // orange warm
+      "radial-gradient(circle, hsl(188 100% 25% / 0.3) 0%, hsl(188 100% 25% / 0.08) 50%, transparent 70%)", // teal dark
     ];
     
     const darkColors = [
-      "radial-gradient(circle, hsl(85 19% 45% / 0.25) 0%, hsl(85 19% 45% / 0.08) 50%, transparent 70%)", // darker sage
-      "radial-gradient(circle, hsl(15 68% 60% / 0.2) 0%, hsl(15 68% 60% / 0.06) 50%, transparent 70%)", // darker peachy pink
-      "radial-gradient(circle, hsl(193 42% 50% / 0.3) 0%, hsl(193 42% 50% / 0.1) 50%, transparent 70%)", // darker soft blue
-      "radial-gradient(circle, hsl(23 76% 55% / 0.22) 0%, hsl(23 76% 55% / 0.05) 50%, transparent 70%)", // darker peachy orange
-      "radial-gradient(circle, hsl(48 74% 60% / 0.18) 0%, hsl(48 74% 60% / 0.04) 50%, transparent 70%)", // darker soft yellow
+      "radial-gradient(circle, hsl(189 80% 68% / 0.25) 0%, hsl(189 80% 68% / 0.08) 50%, transparent 70%)", // teal light
+      "radial-gradient(circle, hsl(23 100% 63% / 0.2) 0%, hsl(23 100% 63% / 0.06) 50%, transparent 70%)", // orange warm
+      "radial-gradient(circle, hsl(188 80% 50% / 0.3) 0%, hsl(188 80% 50% / 0.1) 50%, transparent 70%)", // teal medium bright
+      "radial-gradient(circle, hsl(14 100% 60% / 0.22) 0%, hsl(14 100% 60% / 0.05) 50%, transparent 70%)", // orange vibrant
+      "radial-gradient(circle, hsl(189 80% 68% / 0.18) 0%, hsl(189 80% 68% / 0.04) 50%, transparent 70%)", // teal light soft
     ];
 
     return theme === "dark" ? darkColors[index] : lightColors[index];
