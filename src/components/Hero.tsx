@@ -113,7 +113,7 @@ const Hero = () => {
                 <Download size={16} />
                 Download Resume
               </Button>
-              <Button size="lg" variant="ghost" onClick={() => scrollToSection('contact')}>
+              <Button size="lg" variant="ghost" onClick={() => scrollToSection('contact')} className="bg-rose-200 hover:bg-rose-100">
                 Let's Talk
               </Button>
             </div>
