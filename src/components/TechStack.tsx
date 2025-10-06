@@ -37,7 +37,7 @@ const TechStack = () => {
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {category.techs.map((tech, techIndex) => <Badge key={techIndex} variant="secondary" className="px-4 py-2 text-sm hover:text-accent-foreground transition-all shadow-soft border border-border/50 bg-[t] bg-[#e4d4c8]">
+                  {category.techs.map((tech, techIndex) => <Badge key={techIndex} variant="secondary" className="px-4 py-2 text-sm hover:text-accent-foreground transition-all shadow-soft border border-border/50 bg-[t] bg-[#c7a19b]">
                       {tech}
                     </Badge>)}
                 </div>
