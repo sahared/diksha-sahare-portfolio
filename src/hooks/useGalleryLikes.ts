@@ -2,6 +2,12 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 
+// Check if user is authenticated
+const getIsAuthenticated = async (): Promise<boolean> => {
+  const { data } = await supabase.auth.getSession();
+  return !!data.session;
+};
+
 // Generate a simple browser fingerprint for guest tracking
 const getBrowserFingerprint = (): string => {
   const stored = localStorage.getItem("gallery_user_id");
@@ -24,7 +30,36 @@ interface GalleryPhoto {
 
 export const useGalleryLikes = () => {
   const queryClient = useQueryClient();
-  const [userIdentifier] = useState(getBrowserFingerprint());
+  const [userIdentifier, setUserIdentifier] = useState(getBrowserFingerprint());
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+  // Update user identifier based on authentication status
+  useEffect(() => {
+    const updateUserIdentifier = async () => {
+      const { data } = await supabase.auth.getSession();
+      if (data.session) {
+        setIsAuthenticated(true);
+        setUserIdentifier(data.session.user.id);
+      } else {
+        setIsAuthenticated(false);
+        setUserIdentifier(getBrowserFingerprint());
+      }
+    };
+    
+    updateUserIdentifier();
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) {
+        setIsAuthenticated(true);
+        setUserIdentifier(session.user.id);
+      } else {
+        setIsAuthenticated(false);
+        setUserIdentifier(getBrowserFingerprint());
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   // Fetch all photos
   const { data: photos = [], isLoading } = useQuery({
@@ -40,10 +75,16 @@ export const useGalleryLikes = () => {
     },
   });
 
-  // Fetch user's liked photos
+  // Fetch user's liked photos (only for authenticated users)
+  // Guest users will track likes client-side only via React Query cache
   const { data: likedPhotos = [] } = useQuery({
     queryKey: ["gallery-likes", userIdentifier],
     queryFn: async () => {
+      // Only authenticated users can query the database
+      if (!isAuthenticated) {
+        return [];
+      }
+      
       const { data, error } = await supabase
         .from("gallery_likes")
         .select("photo_id")
@@ -52,6 +93,7 @@ export const useGalleryLikes = () => {
       if (error) throw error;
       return data.map(like => like.photo_id);
     },
+    enabled: isAuthenticated, // Only run query for authenticated users
   });
 
   // Subscribe to real-time updates
