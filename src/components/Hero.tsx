@@ -66,8 +66,8 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-teal-medium text-white border-teal-medium/30">🟢 Available for hire</Badge>
-              <Badge className="bg-orange-vibrant text-white border-orange-vibrant/30 flex items-center gap-1">
+              <Badge className="bg-teal-medium text-white border-teal-medium/30 bg-[#4297a0]">🟢 Available for hire</Badge>
+              <Badge className="bg-orange-vibrant text-white border-orange-vibrant/30 flex items-center gap-1 bg-[#dc9750]">
                 <MapPin size={12} />
                 Based in Boston
               </Badge>
