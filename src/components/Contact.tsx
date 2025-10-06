@@ -106,7 +106,6 @@ const Contact = () => {
       label: "Hire Me",
       value: "",
       link: "https://www.linkedin.com/in/dikshasahare/",
-      isHireMe: true,
     },
     {
       icon: <Mail className="text-accent" size={20} />,
@@ -186,13 +185,9 @@ const Contact = () => {
                   href={method.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-4 bg-card rounded-xl p-5 shadow-soft hover:shadow-card transition-all border border-border/50 group ${
-                    method.isHireMe ? 'animate-pulse hover:animate-none hover:scale-105 ring-2 ring-accent/30' : ''
-                  }`}
+                  className="flex items-center gap-4 bg-card rounded-xl p-5 shadow-soft hover:shadow-card transition-all border border-border/50 group"
                 >
-                  <div className={`w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors ${
-                    method.isHireMe ? 'bg-accent/20 group-hover:bg-accent/40' : ''
-                  }`}>
+                  <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
                     {method.icon}
                   </div>
                   <div className="flex-1">
