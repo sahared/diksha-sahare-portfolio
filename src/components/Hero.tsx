@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-accent/20 text-accent-foreground border-accent/30">
+              <Badge className="text-accent-foreground border-accent/30 bg-emerald-700">
                 🟢 Available for hire
               </Badge>
               <Badge className="bg-secondary/20 text-secondary-foreground border-secondary/30 flex items-center gap-1">
