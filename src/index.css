@@ -10,101 +10,99 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Light Theme - Custom Palette with improved contrast */
-    --background: 32 50% 96%; /* Lighter peachy beige background */
-    --foreground: 123 10% 25%; /* Darker muted green text for better contrast */
+    /* Light Theme - Custom Pink & Green Palette */
+    --background: 343 100% 97%; /* Mimi Pink - soft professional background */
+    --foreground: 154 40% 20%; /* Very dark green - excellent contrast */
 
-    --card: 0 0% 98%; /* Nearly white for cards */
-    --card-foreground: 123 10% 25%; /* Dark text on cards */
+    --card: 0 0% 100%; /* Pure white cards for contrast */
+    --card-foreground: 154 40% 20%; /* Dark green text on cards */
 
-    --popover: 0 0% 98%; /* Nearly white */
-    --popover-foreground: 123 10% 25%; /* Dark text */
+    --popover: 0 0% 100%; /* Pure white */
+    --popover-foreground: 154 40% 20%; /* Dark green text */
 
-    --primary: 344 50% 48%; /* Deeper rose for better contrast */
-    --primary-foreground: 0 0% 98%; /* Light text on primary */
+    --primary: 343 65% 70%; /* Rose Pompadour - main brand color */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
 
-    --secondary: 23 60% 50%; /* Medium warm orange */
-    --secondary-foreground: 0 0% 98%; /* Light text on secondary */
+    --secondary: 154 36% 33%; /* Dark Spring Green - professional accent */
+    --secondary-foreground: 0 0% 100%; /* White text on secondary */
 
-    --muted: 32 30% 88%; /* Light muted background */
-    --muted-foreground: 123 10% 30%; /* Dark text on muted */
+    --muted: 343 50% 95%; /* Very light pink */
+    --muted-foreground: 154 20% 40%; /* Medium green for secondary text */
 
-    --accent: 193 60% 40%; /* Deeper blue for better contrast */
-    --accent-foreground: 0 0% 98%; /* Light text on accent */
+    --accent: 127 25% 53%; /* Asparagus - softer green accent */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 32 20% 85%; /* Light border */
-    --input: 32 20% 85%; /* Light input border */
-    --ring: 344 50% 48%; /* Primary color for focus ring */
+    --border: 343 30% 85%; /* Light pink borders */
+    --input: 343 30% 85%; /* Light pink input border */
+    --ring: 343 65% 70%; /* Primary color for focus ring */
 
     --radius: 0.75rem;
 
-    /* Custom Color Palette Variables - Adjusted for contrast */
-    --peachy-beige: 32 50% 96%;
-    --peachy-pink: 15 60% 75%;
-    --soft-blue: 193 60% 40%;
-    --muted-green: 123 10% 25%;
-    --light-sage: 85 25% 75%;
-    --soft-yellow: 48 60% 55%;
-    --peachy-orange: 23 60% 50%;
+    /* Custom Color Palette Variables */
+    --rose-pompadour: 343 65% 70%;
+    --amaranth-pink: 343 67% 76%;
+    --mimi-pink: 343 100% 93%;
+    --asparagus: 127 25% 53%;
+    --dark-spring-green: 154 36% 33%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(32 86% 91%), hsl(23 76% 78% / 0.3));
-    --gradient-accent: linear-gradient(135deg, hsl(193 42% 72% / 0.3), hsl(85 19% 81% / 0.3));
-    --gradient-mesh: radial-gradient(at 27% 37%, hsl(85 19% 81% / 0.15) 0px, transparent 50%),
-                     radial-gradient(at 97% 21%, hsl(23 76% 78% / 0.12) 0px, transparent 50%),
-                     radial-gradient(at 52% 99%, hsl(193 42% 72% / 0.1) 0px, transparent 50%);
+    --gradient-hero: linear-gradient(135deg, hsl(343 100% 95%), hsl(127 25% 85% / 0.3));
+    --gradient-accent: linear-gradient(135deg, hsl(343 65% 80% / 0.3), hsl(154 36% 60% / 0.3));
+    --gradient-mesh: radial-gradient(at 27% 37%, hsl(127 25% 80% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 97% 21%, hsl(343 67% 85% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 52% 99%, hsl(154 36% 60% / 0.1) 0px, transparent 50%);
     
     /* Shadows */
-    --shadow-soft: 0 2px 12px hsl(23 76% 78% / 0.15);
-    --shadow-card: 0 4px 20px hsl(23 76% 78% / 0.2);
-    --shadow-glow: 0 0 32px hsl(193 42% 72% / 0.25);
+    --shadow-soft: 0 2px 12px hsl(343 65% 70% / 0.15);
+    --shadow-card: 0 4px 20px hsl(343 65% 70% / 0.2);
+    --shadow-glow: 0 0 32px hsl(127 25% 53% / 0.25);
     
     /* Glassmorphism */
-    --glass-bg: hsl(32 86% 91% / 0.85);
-    --glass-border: hsl(85 19% 81% / 0.6);
+    --glass-bg: hsl(343 100% 97% / 0.85);
+    --glass-border: hsl(343 65% 80% / 0.6);
   }
 
   .dark {
-    /* Dark Theme - Warm Organic Palette */
-    --background: 20 15% 16%;
-    --foreground: 35 25% 92%;
+    /* Dark Theme - Pink & Green Palette */
+    --background: 154 25% 12%; /* Very dark green base */
+    --foreground: 343 100% 93%; /* Mimi Pink - light readable text */
 
-    --card: 20 15% 16%;
-    --card-foreground: 35 25% 92%;
+    --card: 154 20% 18%; /* Dark green cards */
+    --card-foreground: 343 100% 93%; /* Light pink text */
 
-    --popover: 20 15% 16%;
-    --popover-foreground: 35 25% 92%;
+    --popover: 154 20% 18%; /* Dark green */
+    --popover-foreground: 343 100% 93%; /* Light pink text */
 
-    --primary: 25 75% 78%;
-    --primary-foreground: 20 15% 16%;
+    --primary: 343 67% 76%; /* Amaranth Pink - brighter for dark mode */
+    --primary-foreground: 154 40% 15%; /* Dark green text on primary */
 
-    --secondary: 130 15% 42%;
-    --secondary-foreground: 35 25% 92%;
+    --secondary: 127 25% 53%; /* Asparagus - softer in dark mode */
+    --secondary-foreground: 154 30% 10%; /* Very dark green text */
 
-    --muted: 20 12% 25%;
-    --muted-foreground: 35 15% 65%;
+    --muted: 154 15% 22%; /* Muted dark green */
+    --muted-foreground: 343 40% 75%; /* Muted pink text */
 
-    --accent: 30 70% 90%;
-    --accent-foreground: 20 15% 16%;
+    --accent: 343 65% 70%; /* Rose Pompadour */
+    --accent-foreground: 154 30% 10%; /* Dark text on accent */
 
     --destructive: 0 60% 45%;
-    --destructive-foreground: 35 25% 92%;
+    --destructive-foreground: 343 100% 93%;
 
-    --border: 20 12% 28%;
-    --input: 20 12% 28%;
-    --ring: 25 75% 78%;
+    --border: 154 20% 25%; /* Dark green borders */
+    --input: 154 20% 25%; /* Dark green input border */
+    --ring: 343 67% 76%;
 
     /* Shadows */
     --shadow-soft: 0 2px 15px hsl(0 0% 0% / 0.4);
-    --shadow-card: 0 4px 25px hsl(25 75% 78% / 0.15);
-    --shadow-glow: 0 0 32px hsl(25 60% 68% / 0.25);
+    --shadow-card: 0 4px 25px hsl(343 67% 76% / 0.15);
+    --shadow-glow: 0 0 32px hsl(127 25% 53% / 0.25);
     
     /* Glassmorphism */
-    --glass-bg: hsl(20 15% 20% / 0.65);
-    --glass-border: hsl(20 12% 28% / 0.4);
+    --glass-bg: hsl(154 20% 18% / 0.65);
+    --glass-border: hsl(154 20% 25% / 0.4);
   }
 }
 
@@ -164,13 +162,54 @@ All colors MUST be HSL.
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 hsl(15 70% 58% / 0.08);
+    box-shadow: 0 8px 32px 0 hsl(343 65% 70% / 0.08);
   }
   
   .glass-card:hover {
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    box-shadow: 0 8px 32px 0 hsl(15 70% 58% / 0.12);
+    box-shadow: 0 8px 32px 0 hsl(343 65% 70% / 0.12);
+  }
+  
+  /* Custom Color Utility Classes */
+  .text-rose-pompadour {
+    color: hsl(343 65% 70%);
+  }
+  
+  .bg-rose-pompadour {
+    background-color: hsl(343 65% 70%);
+  }
+  
+  .text-amaranth-pink {
+    color: hsl(343 67% 76%);
+  }
+  
+  .bg-amaranth-pink {
+    background-color: hsl(343 67% 76%);
+  }
+  
+  .text-mimi-pink {
+    color: hsl(343 100% 93%);
+  }
+  
+  .bg-mimi-pink {
+    background-color: hsl(343 100% 93%);
+  }
+  
+  .text-asparagus {
+    color: hsl(127 25% 53%);
+  }
+  
+  .bg-asparagus {
+    background-color: hsl(127 25% 53%);
+  }
+  
+  .text-dark-spring-green {
+    color: hsl(154 36% 33%);
+  }
+  
+  .bg-dark-spring-green {
+    background-color: hsl(154 36% 33%);
   }
   
   .shadow-glow {
