@@ -106,7 +106,7 @@ const Contact = () => {
       label: "Hire Me",
       value: "",
       link: "https://www.linkedin.com/in/dikshasahare/",
-      isHireMe: false,
+      isHireMe: true,
     },
     {
       icon: <Mail className="text-accent" size={20} />,
