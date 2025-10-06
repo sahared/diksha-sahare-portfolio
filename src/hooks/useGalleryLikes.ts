@@ -75,16 +75,19 @@ export const useGalleryLikes = () => {
     },
   });
 
-  // Fetch user's liked photos (only for authenticated users)
-  // Guest users will track likes client-side only via React Query cache
+  // Fetch user's liked photos
+  // For guests: use localStorage (can't query DB due to RLS)
+  // For authenticated users: query from database
   const { data: likedPhotos = [] } = useQuery({
     queryKey: ["gallery-likes", userIdentifier],
     queryFn: async () => {
-      // Only authenticated users can query the database
-      if (!isAuthenticated) {
-        return [];
+      // For guests, retrieve likes from localStorage
+      if (!isAuthenticated || userIdentifier.startsWith('guest_')) {
+        const stored = localStorage.getItem(`gallery_likes_${userIdentifier}`);
+        return stored ? JSON.parse(stored) : [];
       }
       
+      // For authenticated users, query from database
       const { data, error } = await supabase
         .from("gallery_likes")
         .select("photo_id")
@@ -93,7 +96,6 @@ export const useGalleryLikes = () => {
       if (error) throw error;
       return data.map(like => like.photo_id);
     },
-    enabled: isAuthenticated, // Only run query for authenticated users
   });
 
   // Subscribe to real-time updates
@@ -121,6 +123,16 @@ export const useGalleryLikes = () => {
   // Like mutation
   const likeMutation = useMutation({
     mutationFn: async (photoId: string) => {
+      // For guests, also update localStorage
+      if (userIdentifier.startsWith('guest_')) {
+        const stored = localStorage.getItem(`gallery_likes_${userIdentifier}`);
+        const currentLikes = stored ? JSON.parse(stored) : [];
+        localStorage.setItem(
+          `gallery_likes_${userIdentifier}`,
+          JSON.stringify([...currentLikes, photoId])
+        );
+      }
+      
       const { error } = await supabase.from("gallery_likes").insert({
         photo_id: photoId,
         user_identifier: userIdentifier,
@@ -168,6 +180,16 @@ export const useGalleryLikes = () => {
   // Unlike mutation
   const unlikeMutation = useMutation({
     mutationFn: async (photoId: string) => {
+      // For guests, also update localStorage
+      if (userIdentifier.startsWith('guest_')) {
+        const stored = localStorage.getItem(`gallery_likes_${userIdentifier}`);
+        const currentLikes = stored ? JSON.parse(stored) : [];
+        localStorage.setItem(
+          `gallery_likes_${userIdentifier}`,
+          JSON.stringify(currentLikes.filter((id: string) => id !== photoId))
+        );
+      }
+      
       const { error } = await supabase
         .from("gallery_likes")
         .delete()
