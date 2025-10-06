@@ -8,72 +8,57 @@ const Hero = () => {
   const roles = ["Full-Stack Developer", "Problem Solver", "AI Engineer", "Open Source Contributor"];
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      setCurrentRoleIndex(prev => (prev + 1) % roles.length);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-  const stats = [
-    {
-      value: "5+",
-      label: "Years of Experience",
-    },
-    {
-      value: "20+",
-      label: "Projects Completed",
-    },
-    {
-      value: "26+",
-      label: "Honors & Awards",
-    },
-  ];
-  const socialLinks = [
-    {
-      icon: <Linkedin size={20} />,
-      href: "#",
-      label: "LinkedIn",
-    },
-    {
-      icon: <Github size={20} />,
-      href: "#",
-      label: "GitHub",
-    },
-    {
-      icon: <Code size={20} />,
-      href: "#",
-      label: "CodePen",
-    },
-    {
-      icon: <Twitter size={20} />,
-      href: "#",
-      label: "Twitter",
-    },
-  ];
-  const trustLogos = [
-    {
-      name: "Amazon",
-      alt: "Amazon",
-    },
-    {
-      name: "Northeastern",
-      alt: "Northeastern University",
-    },
-    {
-      name: "AWS",
-      alt: "AWS Certified",
-    },
-    {
-      name: "Google Cloud",
-      alt: "Google Cloud Certified",
-    },
-  ];
+  const stats = [{
+    value: "5+",
+    label: "Years of Experience"
+  }, {
+    value: "20+",
+    label: "Projects Completed"
+  }, {
+    value: "26+",
+    label: "Honors & Awards"
+  }];
+  const socialLinks = [{
+    icon: <Linkedin size={20} />,
+    href: "#",
+    label: "LinkedIn"
+  }, {
+    icon: <Github size={20} />,
+    href: "#",
+    label: "GitHub"
+  }, {
+    icon: <Code size={20} />,
+    href: "#",
+    label: "CodePen"
+  }, {
+    icon: <Twitter size={20} />,
+    href: "#",
+    label: "Twitter"
+  }];
+  const trustLogos = [{
+    name: "Amazon",
+    alt: "Amazon"
+  }, {
+    name: "Northeastern",
+    alt: "Northeastern University"
+  }, {
+    name: "AWS",
+    alt: "AWS Certified"
+  }, {
+    name: "Google Cloud",
+    alt: "Google Cloud Certified"
+  }];
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
-  return (
-    <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background relative overflow-hidden border-t border-border/30">
+  return <section className="min-h-screen flex items-center pt-20 pb-12 px-4 bg-background relative overflow-hidden border-t border-border/30">
       <FlowerDecor variant={3} className="absolute top-10 left-10 opacity-40 animate-float-slow" size={80} />
       <FlowerDecor variant={5} className="absolute top-32 right-16 opacity-30 animate-float-slow" size={100} />
       <FlowerDecor variant={1} className="absolute bottom-20 left-1/4 opacity-25" size={70} />
@@ -112,16 +97,9 @@ const Hero = () => {
             </div>
 
             <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 rounded-lg bg-card hover:bg-accent transition-all flex items-center justify-center text-foreground hover:text-accent-foreground shadow-soft"
-                  aria-label={social.label}
-                >
+              {socialLinks.map((social, index) => <a key={index} href={social.href} className="w-10 h-10 rounded-lg bg-card hover:bg-accent transition-all flex items-center justify-center text-foreground hover:text-accent-foreground shadow-soft" aria-label={social.label}>
                   {social.icon}
-                </a>
-              ))}
+                </a>)}
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -129,21 +107,11 @@ const Hero = () => {
                 View Projects
                 <ArrowRight size={16} />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => window.open("/resume.pdf", "_blank")}
-                className="gap-2"
-              >
+              <Button size="lg" variant="outline" onClick={() => window.open("/resume.pdf", "_blank")} className="gap-2">
                 <Download size={16} />
                 Download Resume
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => scrollToSection("contact")}
-                className="bg-rose-200 hover:bg-rose-100"
-              >
+              <Button size="lg" variant="outline" onClick={() => scrollToSection("contact")} className="bg-inherit">
                 Let's Talk
               </Button>
             </div>
@@ -152,27 +120,19 @@ const Hero = () => {
               <div>
                 <p className="text-sm text-muted-foreground mb-6">A FEW HIGHLIGHTS</p>
                 <div className="grid grid-cols-3 gap-6">
-                  {stats.map((stat, index) => (
-                    <div key={index}>
+                  {stats.map((stat, index) => <div key={index}>
                       <div className="text-3xl font-bold text-foreground mb-1">{stat.value}</div>
                       <div className="text-xs text-muted-foreground leading-tight">{stat.label}</div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
 
               <div>
                 <p className="text-sm text-muted-foreground mb-4">TRUSTED BY</p>
                 <div className="grid grid-cols-4 gap-4">
-                  {trustLogos.map((logo, index) => (
-                    <div
-                      key={index}
-                      className="h-12 rounded-lg bg-card border border-border flex items-center justify-center text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all grayscale hover:grayscale-0"
-                      title={logo.alt}
-                    >
+                  {trustLogos.map((logo, index) => <div key={index} className="h-12 rounded-lg bg-card border border-border flex items-center justify-center text-xs font-medium text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all grayscale hover:grayscale-0" title={logo.alt}>
                       {logo.name}
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </div>
@@ -182,14 +142,7 @@ const Hero = () => {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=448&h=448&fit=crop&fm=webp&q=80"
-                  alt="Profile"
-                  width="448"
-                  height="448"
-                  className="w-full h-full object-cover"
-                  fetchPriority="high"
-                />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=448&h=448&fit=crop&fm=webp&q=80" alt="Profile" width="448" height="448" className="w-full h-full object-cover" fetchPriority="high" />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent rounded-full blur-3xl opacity-40"></div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-40"></div>
@@ -197,7 +150,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default Hero;
