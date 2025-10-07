@@ -54,7 +54,7 @@ const TechStack = () => {
                     <Badge
                       key={techIndex}
                       variant="secondary"
-                      className="px-4 py-2 text-sm text-foreground bg-card hover:text-accent-foreground transition-all shadow-soft border border-border/50"
+                      className="px-4 py-2 text-sm text-gray-800 dark:text-gray-100 bg-gray-200 dark:bg-gray-700 hover:text-accent-foreground transition-all shadow-soft border border-border/50"
                     >
                       {tech}
                     </Badge>
