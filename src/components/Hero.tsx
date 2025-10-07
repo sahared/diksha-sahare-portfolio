@@ -29,7 +29,7 @@ const Hero = () => {
   const socialLinks = [
     {
       icon: <Linkedin size={20} />,
-      href: "#",
+      href: "https://www.linkedin.com/in/dikshasahare/",
       label: "LinkedIn",
     },
     {
