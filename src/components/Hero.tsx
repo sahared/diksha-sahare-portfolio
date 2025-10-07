@@ -107,12 +107,9 @@ const Hero = () => {
                 Building intelligent systems that solve real-world problems
               </p>
 
-              <div className="flex items-center gap-2 text-secondary-foreground mb-4">
-                <span className="text-sm font-mono text-red-400">root:~$</span>
-                <span
-                  className="text-sm font-medium animate-fade-in bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-orange-400"
-                  key={currentRoleIndex}
-                >
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-sm font-mono text-teal-600 dark:text-teal-300">root:~$</span>
+                <span className="text-sm text-foreground animate-fade-in" key={currentRoleIndex}>
                   {roles[currentRoleIndex]}
                 </span>
               </div>
