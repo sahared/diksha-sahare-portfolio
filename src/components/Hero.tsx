@@ -111,7 +111,6 @@ const Hero = () => {
                 <span className="text-sm font-mono text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-orange-400">
                   root:~$
                 </span>
-
                 <span className="text-sm animate-fade-in" key={currentRoleIndex}>
                   {roles[currentRoleIndex]}
                 </span>
