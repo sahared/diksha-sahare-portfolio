@@ -89,7 +89,7 @@ const Hero = () => {
               </p>
 
               <div className="flex items-center gap-2 text-secondary-foreground mb-4">
-                <span className="text-sm font-mono">root:~$</span>
+                <span className="text-sm font-mono text-zinc-800">root:~$</span>
                 <span className="text-sm animate-fade-in" key={currentRoleIndex}>
                   {roles[currentRoleIndex]}
                 </span>
