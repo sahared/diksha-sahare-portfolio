@@ -152,9 +152,9 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="pt-6 space-y-8">
+            {/* <div className="pt-6 space-y-8">
               <div>
-                {/* <p className="text-sm text-muted-foreground mb-6">A FEW HIGHLIGHTS</p> */}
+                <p className="text-sm text-muted-foreground mb-6">A FEW HIGHLIGHTS</p>
                 <div className="grid grid-cols-3 gap-6">
                   {stats.map((stat, index) => (
                     <div key={index}>
@@ -166,7 +166,7 @@ const Hero = () => {
               </div>
 
               <div>
-                {/* <p className="text-sm text-muted-foreground mb-4">TRUSTED BY</p> */}
+                <p className="text-sm text-muted-foreground mb-4">TRUSTED BY</p>
                 <div className="grid grid-cols-4 gap-4">
                   {trustLogos.map((logo, index) => (
                     <div
@@ -179,7 +179,7 @@ const Hero = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="relative">
