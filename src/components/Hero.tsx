@@ -34,7 +34,7 @@ const Hero = () => {
     },
     {
       icon: <Github size={20} />,
-      href: "#",
+      href: "https://github.com/sahared",
       label: "GitHub",
     },
     {
