@@ -12,20 +12,20 @@ const Hero = () => {
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-  // const stats = [
-  //   {
-  //     value: "5+",
-  //     label: "Years of Experience",
-  //   },
-  //   {
-  //     value: "20+",
-  //     label: "Projects Completed",
-  //   },
-  //   {
-  //     value: "26+",
-  //     label: "Honors & Awards",
-  //   },
-  // ];
+  const stats = [
+    {
+      value: "5+",
+      label: "Years of Experience",
+    },
+    {
+      value: "20+",
+      label: "Projects Completed",
+    },
+    {
+      value: "26+",
+      label: "Honors & Awards",
+    },
+  ];
   const socialLinks = [
     {
       icon: <Linkedin size={20} />,
