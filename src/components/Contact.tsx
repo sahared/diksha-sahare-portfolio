@@ -27,11 +27,7 @@ const Contact = () => {
 
   // Your hidden WhatsApp number
   const whatsappNumber = "18575659774"; // Replace with your number
-  const whatsappMessage = "Hi, I want to contact you";
-  // WhatsApp Web-safe link
-  const whatsappLink = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
-    whatsappMessage,
-  )}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   useEffect(() => {
     // Update date every minute
