@@ -283,7 +283,7 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-20 text-center">
-          <p className="text-sm text-muted-foreground">With Diksha Sahare</p>
+          <p className="text-sm text-muted-foreground">By Diksha Sahare</p>
         </div>
       </div>
     </section>
