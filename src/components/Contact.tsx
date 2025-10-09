@@ -29,7 +29,9 @@ const Contact = () => {
   const whatsappNumber = "8575659774"; // Replace with your number
   const whatsappMessage = "Hi, I want to contact you";
   // WhatsApp Web-safe link
-  const whatsappLink = `https://wa.me/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappLink = `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
+    whatsappMessage,
+  )}`;
 
   useEffect(() => {
     // Update date every minute
