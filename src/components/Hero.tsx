@@ -154,7 +154,7 @@ const Hero = () => {
 
             <div className="pt-6 space-y-8">
               <div>
-                <p className="text-sm text-muted-foreground mb-6">A FEW HIGHLIGHTS</p>
+                {/* <p className="text-sm text-muted-foreground mb-6">A FEW HIGHLIGHTS</p> */}
                 <div className="grid grid-cols-3 gap-6">
                   {stats.map((stat, index) => (
                     <div key={index}>
