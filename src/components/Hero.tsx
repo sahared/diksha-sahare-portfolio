@@ -13,18 +13,18 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
   const stats = [
-    {
-      value: "5+",
-      label: "Years of Experience",
-    },
-    {
-      value: "20+",
-      label: "Projects Completed",
-    },
-    {
-      value: "26+",
-      label: "Honors & Awards",
-    },
+    // {
+    //   value: "5+",
+    //   label: "Years of Experience",
+    // },
+    // {
+    //   value: "20+",
+    //   label: "Projects Completed",
+    // },
+    // {
+    //   value: "26+",
+    //   label: "Honors & Awards",
+    // },
   ];
   const socialLinks = [
     {
