@@ -115,7 +115,7 @@ const Contact = () => {
       icon: <Phone className="text-accent" size={20} />,
       label: "Phone",
       value: "Available on request",
-      link: "#",
+      link: "https://wa.me/8574219015?text=Hi%2C%20I%20want%20to%20contact%20you",
     },
   ];
 
