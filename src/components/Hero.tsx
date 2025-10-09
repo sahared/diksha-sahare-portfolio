@@ -39,14 +39,14 @@ const Hero = () => {
     },
     {
       icon: <Code size={20} />,
-      href: "#",
+      href: "https://leetcode.com/u/dsahare75",
       label: "CodePen",
     },
-    {
-      icon: <Twitter size={20} />,
-      href: "#",
-      label: "Twitter",
-    },
+    // {
+    //   icon: <Twitter size={20} />,
+    //   href: "#",
+    //   label: "Twitter",
+    // },
   ];
   const trustLogos = [
     {
