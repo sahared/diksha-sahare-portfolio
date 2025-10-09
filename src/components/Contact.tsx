@@ -283,27 +283,25 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="mt-20 text-center">
-          <p className="text-sm text-muted-foreground">
-            With <Heart className="inline text-accent fill-accent" size={16} /> Diksha Sahare
-          </p>
+          <p className="text-sm text-muted-foreground">With Diksha Sahare</p>
         </div>
       </div>
     </section>
   );
 };
 
-const Heart = ({ className, size }: { className?: string; size?: number }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size || 24}
-    height={size || 24}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    stroke="none"
-    className={className}
-  >
-    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-  </svg>
-);
+// const Heart = ({ className, size }: { className?: string; size?: number }) => (
+//   <svg
+//     xmlns="http://www.w3.org/2000/svg"
+//     width={size || 24}
+//     height={size || 24}
+//     viewBox="0 0 24 24"
+//     fill="currentColor"
+//     stroke="none"
+//     className={className}
+//   >
+//     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+//   </svg>
+// );
 
 export default Contact;
