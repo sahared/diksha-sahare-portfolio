@@ -25,10 +25,6 @@ const Contact = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [visitorCount, setVisitorCount] = useState(0);
 
-  // Your hidden WhatsApp number
-  const whatsappNumber = "18575659774"; // Replace with your number
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
-
   useEffect(() => {
     // Update date every minute
     const dateInterval = setInterval(() => {
@@ -119,7 +115,7 @@ const Contact = () => {
       icon: <Phone className="text-accent" size={20} />,
       label: "Phone",
       value: "Available on request",
-      link: whatsappLink,
+      link: "https://wa.me/8574219015?text=Hi%2C%20I%20want%20to%20contact%20you",
     },
   ];
 
@@ -204,8 +200,6 @@ const Contact = () => {
                       href={social.href}
                       className="w-12 h-12 rounded-lg bg-card hover:bg-accent transition-all flex items-center justify-center text-foreground hover:text-accent-foreground shadow-soft border border-border/50"
                       aria-label={social.label}
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       {social.icon}
                     </a>
