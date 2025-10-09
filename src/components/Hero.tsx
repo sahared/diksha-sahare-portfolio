@@ -49,22 +49,22 @@ const Hero = () => {
     // },
   ];
   const trustLogos = [
-    {
-      name: "Amazon",
-      alt: "Amazon",
-    },
-    {
-      name: "Northeastern",
-      alt: "Northeastern University",
-    },
-    {
-      name: "AWS",
-      alt: "AWS Certified",
-    },
-    {
-      name: "Google Cloud",
-      alt: "Google Cloud Certified",
-    },
+    // {
+    //   name: "Amazon",
+    //   alt: "Amazon",
+    // },
+    // {
+    //   name: "Northeastern",
+    //   alt: "Northeastern University",
+    // },
+    // {
+    //   name: "AWS",
+    //   alt: "AWS Certified",
+    // },
+    // {
+    //   name: "Google Cloud",
+    //   alt: "Google Cloud Certified",
+    // },
   ];
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
