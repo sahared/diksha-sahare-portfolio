@@ -166,7 +166,7 @@ const Hero = () => {
               </div>
 
               <div>
-                <p className="text-sm text-muted-foreground mb-4">TRUSTED BY</p>
+                {/* <p className="text-sm text-muted-foreground mb-4">TRUSTED BY</p> */}
                 <div className="grid grid-cols-4 gap-4">
                   {trustLogos.map((logo, index) => (
                     <div
