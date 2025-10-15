@@ -187,8 +187,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
                 <img
-                  {/* src="https://i.postimg.cc/BbXTV7MT/IMG-20230506-175320.jpg" */}
-                  src="https://i.postimg.cc/8z1d6b6d/B729844-F-F867-4-BE4-9-D18-C0-BA79157622.jpg"
+                  src="https://i.postimg.cc/BbXTV7MT/IMG-20230506-175320.jpg"
                   alt="Profile"
                   width="448"
                   height="448"
