@@ -183,7 +183,7 @@ const Hero = () => {
           </div>
 
           <div className="relative">
-            <div className="relative w-full max-w-lg h-[550px] mx-auto">
+            <div className="relative w-full max-w-lg h-[600px] mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
                 <img
