@@ -186,15 +186,13 @@ const Hero = () => {
             <div className="relative w-full aspect-square max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20 rounded-3xl transform rotate-6"></div>
               <div className="absolute inset-0 bg-card rounded-3xl shadow-card overflow-hidden">
-                <div className="relative p-[3px] rounded-[2rem] bg-gradient-to-tr from-teal-400 via-orange-400 to-pink-500 shadow-xl">
-                  <img
-                    src="https://i.postimg.cc/BbXTV7MT/IMG-20230506-175320.jpg"
-                    alt="Profile"
-                    width="448"
-                    height="448"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <img
+                  src="https://i.postimg.cc/BbXTV7MT/IMG-20230506-175320.jpg"
+                  alt="Profile"
+                  width="448"
+                  height="448"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-light rounded-full blur-3xl opacity-40"></div>
               <div className="absolute -top-4 -left-4 w-32 h-32 bg-orange-warm rounded-full blur-3xl opacity-40"></div>
