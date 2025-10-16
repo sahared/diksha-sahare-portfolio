@@ -131,14 +131,6 @@ const FlowerCursor = () => {
         className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999]"
         style={{ mixBlendMode: "normal" }}
       />
-      {/* Optional: Manual theme toggle button */}
-      <button
-        onClick={() => setIsDark(!isDark)}
-        className="fixed top-4 right-4 z-[10000] px-3 py-1 bg-gray-200 dark:bg-gray-800 rounded-md text-sm"
-        style={{ cursor: "pointer" }}
-      >
-        {isDark ? "☀️" : "🌙"}
-      </button>
     </>
   );
 };
