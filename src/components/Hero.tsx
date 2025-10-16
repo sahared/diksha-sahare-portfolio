@@ -96,11 +96,11 @@ const Hero = () => {
 
             <div>
               <h1 className="text-5xl md:text-7xl font-bold mb-2">
-                <span className="text-foreground">Diksha</span>
+                <span className="text-foreground">Diksha Sahare</span>
                 <br />
-                <span className="text-foreground">
+                {/* <span className="text-foreground">
                   Sahare
-                </span>
+                </span> */}
               </h1>
 
               <p className="text-lg text-muted-foreground mb-4 max-w-md">
