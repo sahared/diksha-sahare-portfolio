@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 
-const CosmicCursor = () => {
+const CrosshairCursor = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePos = useRef({ x: 0, y: 0 });
   const { theme } = useTheme();
@@ -9,37 +9,54 @@ const CosmicCursor = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Set canvas size
+    document.body.style.cursor = "none";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mousePos.current = { x: e.clientX, y: e.clientY };
+    };
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-
-    // Track mouse
-    const handleMouseMove = (e: MouseEvent) => {
-      mousePos.current = { x: e.clientX, y: e.clientY };
-    };
     window.addEventListener("mousemove", handleMouseMove);
 
-    // Simple animation
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const { x, y } = mousePos.current;
-      const color = theme === "dark" ? "rgba(242, 188, 156, 0.6)" : "rgba(228, 114, 68, 0.6)";
+      const color = theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)";
 
-      // Just a simple circle
-      ctx.beginPath();
-      ctx.arc(x, y, 8, 0, Math.PI * 2);
       ctx.strokeStyle = color;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 1;
+
+      // Horizontal line
+      ctx.beginPath();
+      ctx.moveTo(x - 12, y);
+      ctx.lineTo(x - 4, y);
+      ctx.moveTo(x + 4, y);
+      ctx.lineTo(x + 12, y);
       ctx.stroke();
+
+      // Vertical line
+      ctx.beginPath();
+      ctx.moveTo(x, y - 12);
+      ctx.lineTo(x, y - 4);
+      ctx.moveTo(x, y + 4);
+      ctx.lineTo(x, y + 12);
+      ctx.stroke();
+
+      // Center dot
+      ctx.beginPath();
+      ctx.arc(x, y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.fill();
 
       requestAnimationFrame(animate);
     };
@@ -47,6 +64,7 @@ const CosmicCursor = () => {
     animate();
 
     return () => {
+      document.body.style.cursor = "auto";
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
     };
@@ -55,4 +73,4 @@ const CosmicCursor = () => {
   return <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-[9999]" />;
 };
 
-export default CosmicCursor;
+export default CrosshairCursor;
