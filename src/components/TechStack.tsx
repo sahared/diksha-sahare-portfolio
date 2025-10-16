@@ -64,7 +64,7 @@ const TechStack = () => {
             ))}
           </div>
 
-          <div className="mt-12">
+          {/* <div className="mt-12">
             <img
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=512&h=320&fit=crop&fm=webp&q=80"
               alt="Developer workspace"
@@ -73,7 +73,7 @@ const TechStack = () => {
               className="w-full max-w-lg ml-auto rounded-2xl shadow-card"
               loading="lazy"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
