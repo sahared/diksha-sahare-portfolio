@@ -29,10 +29,10 @@ const Navbar = () => {
   //   name: "Certifications",
   //   href: "#certifications"
   // }, 
-  // {
-  //   name: "Gallery",
-  //   href: "#gallery"
-  // }, {
+  {
+    name: "Gallery",
+    href: "#gallery"
+  }, {
     name: "Contact",
     href: "#contact"
   }];
